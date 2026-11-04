@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FBE5EC">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="HUMAIRA MUSLIMAH SALON & SPA — Alami Rahsia Keanggunan. Rawatan rambut, wajah dan badan untuk muslimah di Ipoh. Tempah slot anda di tiga cawangan kami.">
+  <meta name="keywords" content="salon muslimah ipoh, spa muslimah ipoh, rawatan rambut muslimah, facial spa ipoh, humaira salon spa">
+  <meta name="author" content="Humaira Muslimah Salon & Spa">
+  <meta name="robots" content="index, follow">
+  <title>HUMAIRA MUSLIMAH SALON & SPA | Alami Rahsia Keanggunan</title>
+
+  <!-- Favicon / Title Logo -->
+  <link rel="icon" type="image/png" href="Humaira Muslimah Salon Spa Logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Social Media Tags (WhatsApp, Facebook, Telegram) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.domainanda.com/">
+  <meta property="og:title" content="HUMAIRA MUSLIMAH SALON & SPA | Alami Rahsia Keanggunan">
+  <meta property="og:description" content="Manjakan diri anda dengan rawatan rambut, wajah dan badan eksklusif khusus untuk wanita dan muslimah di Ipoh. Tempah slot anda sekarang!">
+  <meta property="og:image" content="https://www.domainanda.com/images/banner-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.domainanda.com/">
+  <meta name="twitter:title" content="HUMAIRA MUSLIMAH SALON & SPA | Alami Rahsia Keanggunan">
+  <meta name="twitter:description" content="Rawatan rambut, wajah dan badan untuk muslimah di Ipoh. Tempah slot anda di cawangan kami.">
+  <meta name="twitter:image" content="https://www.domainanda.com/images/banner-og.jpg">
+  <style>
+    :root {
+      --pink-50:#FFF8FA;--pink-100:#FBE5EC;--pink-200:#FDC1D7;--pink-300:#F39DB7;
+      --pink-500:#DB6690;--pink-600:#E61671;--pink-700:#C70F5E;
+      --ink:#21151A;--muted:#75636B;--white:#fff;--olive:#92965D;--line:#F1D6E0;
+      --shadow:0 18px 55px rgba(120,35,72,.12);--radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--pink-50);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65}
+    body.modal-open{overflow:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    .container{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--pink-700);font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:.72rem}
+    .eyebrow:before{content:"";width:28px;height:2px;background:var(--pink-600)}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,.serif{font-family:"Playfair Display",serif}
+    h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.13;margin:12px 0 16px}
+    .section-intro{max-width:650px;color:var(--muted);margin:0 auto}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 44px}
+    .section-head .eyebrow{justify-content:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 23px;border:0;border-radius:999px;font-weight:800;transition:.25s ease}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(230,22,113,.2)}
+    .btn-primary{background:var(--pink-600);color:#fff}
+    .btn-dark{background:var(--ink);color:#fff}
+    .btn-light{background:#fff;color:var(--pink-700);border:1px solid var(--line)}
+    .text-link{color:var(--pink-700);font-weight:800}
+    .topbar{background:var(--ink);color:#fff;font-size:.82rem;padding:8px 0}
+    .topbar-inner{display:flex;justify-content:space-between;gap:15px;align-items:center}
+    .topbar a{color:#FFD4E4;font-weight:700}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,248,250,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(241,214,224,.8)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;min-width:220px}
+    .brand-mark{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink-600),var(--pink-300));color:white;font-family:"Playfair Display",serif;font-size:1.3rem;font-weight:700;box-shadow:0 5px 16px #e6167133}
+    .brand-name{font-size:.84rem;font-weight:900;letter-spacing:.06em;line-height:1.15}
+    .brand-name small{display:block;font-size:.61rem;letter-spacing:.2em;color:var(--pink-700);margin-top:4px}
+    .nav-links{display:flex;align-items:center;gap:25px;font-size:.88rem;font-weight:700;color:#55444B}
+    .nav-links a:hover{color:var(--pink-600)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .nav-actions .btn{padding:11px 18px;font-size:.82rem}
+    .menu-toggle{display:none;border:0;background:var(--pink-100);color:var(--pink-700);width:44px;height:44px;border-radius:50%;font-size:1.35rem}
+    
+    /* Logo Img Styling */
+    .brand-logo-img {
+        height: 75px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+    .hero{position:relative;min-height:690px;display:flex;align-items:center;overflow:hidden;background:#4b2636}
+    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,13,20,.78) 0%,rgba(42,18,29,.59) 48%,rgba(42,18,29,.12) 100%),url("latar.jpeg") center/cover no-repeat;transform:scale(1.01)}
+    .hero:after{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(transparent,var(--pink-50))}
+    .hero-content{position:relative;z-index:1;color:#fff;max-width:690px;padding:95px 0 125px}
+    .hero .eyebrow{color:#FFD7E5}
+    .hero .eyebrow:before{background:#FFD7E5}
+    .hero h1{font-size:clamp(3rem,7vw,5.9rem);line-height:.99;letter-spacing:-.04em;margin:22px 0}
+    .hero h1 span{color:#FFB8D1;font-style:italic}
+    .hero p{font-size:1.08rem;color:#FFF0F5;max-width:550px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 35px}
+    .hero-points{display:flex;flex-wrap:wrap;gap:18px;color:#fff;font-size:.84rem;font-weight:700}
+    .hero-points span:before{content:"✓";color:#FFC2D8;margin-right:8px;font-weight:900}
+    .hero-note{position:absolute;z-index:2;right:max(25px,calc((100vw - 1160px)/2));bottom:105px;background:rgba(255,255,255,.92);color:var(--ink);padding:18px 22px;border-radius:18px;box-shadow:var(--shadow);max-width:225px}
+    .hero-note strong{display:block;color:var(--pink-700);font-family:"Playfair Display",serif;font-size:1.35rem}
+    .hero-note small{color:var(--muted)}
+    
+    .trust-strip{position:relative;z-index:3;margin-top:-34px}
+    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+    .trust-item{padding:22px 25px;display:flex;align-items:center;gap:14px}
+    .trust-item+.trust-item{border-left:1px solid var(--line)}
+    .trust-icon{width:45px;height:45px;flex:0 0 45px;border-radius:15px;background:var(--pink-100);display:grid;place-items:center;color:var(--pink-700);font-size:1.25rem}
+    .trust-item strong{display:block;font-size:.94rem}
+    .trust-item small{color:var(--muted);font-size:.78rem}
+    
+    section{padding:95px 0}
+    
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+    .about-visual{position:relative;min-height:490px}
+    .about-photo{position:absolute;inset:0 55px 35px 0;border-radius:180px 180px 28px 28px;overflow:hidden;background:url("https://images.unsplash.com/photo-1521590832167-7bcbfa6381f1?auto=format&fit=crop&w=1000&q=85") center/cover}
+    .about-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(30,15,21,.1),transparent)}
+    .about-stamp {
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%) rotate(7deg);
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: var(--pink-600);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 15px;
+        border: 6px solid var(--pink-50);
+        font-family: "Playfair Display", serif;
+        font-size: 1.05rem;
+        line-height: 1.25;
+        z-index: 10;
+    }
+    .about-copy p{color:var(--muted)}
+    .check-list{list-style:none;padding:0;margin:25px 0;display:grid;gap:12px}
+    .check-list li{display:flex;gap:11px;align-items:flex-start;font-weight:600}
+    .check-list li:before{content:"✓";width:23px;height:23px;flex:0 0 23px;display:grid;place-items:center;border-radius:50%;background:#FCE2EC;color:var(--pink-700);font-size:.8rem}
+    
+    .soft-section{background:linear-gradient(135deg,#FBE5EC,#FFF5F8 58%,#F8D9E5)}
+    
+    /* 1. Laraskan kedudukan badge supaya naik ke atas dan tidak tutup teks poster */
+    .promo-frame {
+        position: relative;
+        max-width: 480px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(219, 39, 119, 0.2);
+        border: 3px solid rgba(255, 182, 193, 0.4);
+        background: transparent;
+        animation: floatAnimation 4s ease-in-out infinite;
+    }
+
+    .promo-badge {
+        position: absolute;
+        top: 10px; /* Dinaikkan sedikit */
+        right: 15px;
+        background: linear-gradient(135deg, #db2777, #f43f5e);
+        color: #ffffff;
+        padding: 6px 14px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
+
+    /* 2. Butang Standalone di bawah poster */
+    .promo-action-standalone {
+        text-align: center;
+        margin-top: 25px; /* Jarak kemas dari poster */
+    }
+
+    .promo-select-btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 0.95rem;
+        padding: 14px 24px;
+        box-shadow: 0 8px 20px rgba(230, 22, 113, 0.25);
+    }
+
+    /* 3. Gaya Pop-up (Lightbox) untuk Papar Poster Besar */
+    .image-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .image-modal.open {
+        display: flex;
+    }
+
+    .image-modal-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90vh;
+    }
+
+    .image-modal-content img {
+        width: 100%;
+        height: auto;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .image-modal-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .category-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:25px 22px;transition:.25s}
+    .category-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .category-card .cat-icon{font-size:1.7rem;margin-bottom:16px}
+    .category-card h3{font-family:"Playfair Display",serif;font-size:1.35rem;margin-bottom:7px}
+    .category-card p{color:var(--muted);font-size:.88rem;margin:0}
+    
+    .package-toolbar{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:30px}
+    .filter-btn{border:1px solid var(--line);background:#fff;color:var(--muted);padding:10px 17px;border-radius:999px;font-weight:800;font-size:.83rem}
+    .filter-btn.active,.filter-btn:hover{background:var(--pink-600);border-color:var(--pink-600);color:#fff}
+    .package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+    .package-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 25px rgba(120,35,72,.045);transition:.25s}
+    .package-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .package-card.featured{border:2px solid var(--pink-300);background:linear-gradient(155deg,#fff,#FFF3F7)}
+    .package-tag{position:absolute;right:17px;top:17px;background:var(--pink-100);color:var(--pink-700);font-size:.68rem;font-weight:900;padding:6px 10px;border-radius:99px}
+    .package-card h3{font-family:"Playfair Display",serif;font-size:1.55rem;margin:0 0 5px}
+    .package-time{color:var(--muted);font-size:.82rem}
+    .package-price{font-size:2rem;font-weight:900;color:var(--pink-700);margin:15px 0 4px;letter-spacing:-.04em}
+    .package-price small{font-size:.75rem;color:var(--muted);font-weight:600;letter-spacing:0}
+    .package-card ul{padding-left:19px;color:#5f4b53;font-size:.9rem;margin:12px 0 24px;flex:1}
+    .package-card li{padding:3px 0}
+    .package-card .btn{width:100%;font-size:.88rem}
+    .mini-note{text-align:center;color:var(--muted);font-size:.85rem;margin-top:24px}
+    
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 8px 28px rgba(120,35,72,.04)}
+    table{width:100%;border-collapse:collapse;min-width:560px}
+    th,td{padding:14px 17px;text-align:left;border-bottom:1px solid #F5E7EC;font-size:.88rem}
+    th{background:#FCEBF1;color:#8E2850;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+    tr:last-child td{border-bottom:0}
+    tbody tr:hover{background:#FFFAFC}
+    .price{font-weight:800;color:var(--pink-700);white-space:nowrap}
+    
+    .treatment-block{margin:0 0 30px}
+    .treatment-block h3{font-family:"Playfair Display",serif;font-size:1.55rem;margin:0 0 13px}
+    .treatment-caption{font-size:.83rem;color:var(--muted);margin:-5px 0 13px}
+    .special-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .special-panel{border-radius:24px;padding:28px;background:#fff;border:1px solid var(--line)}
+    .special-panel.pink{background:#FFF0F5}
+    .special-panel h3{font-family:"Playfair Display",serif;font-size:1.55rem}
+    .special-panel p{color:var(--muted);font-size:.9rem}
+    .choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;padding-left:20px;font-size:.88rem}
+    
+    /* Cawangan Cards & Maps */
+    .branch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .branch-card{
+        background:#ffffff;
+        border-radius:16px;
+        overflow:hidden;
+        box-shadow:0 10px 25px rgba(219, 39, 119, 0.08);
+        border:1px solid rgba(255, 182, 193, 0.4);
+        display:flex;
+        flex-direction:column;
+        transition:transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .branch-card:hover{
+        transform:translateY(-5px);
+        box-shadow:0 15px 30px rgba(219, 39, 119, 0.15);
+    }
+    .branch-img-container{
+        width:100%;
+        height:200px;
+        background-color:#fce7f3;
+        overflow:hidden;
+    }
+    .branch-img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        display:block;
+        transition:transform 0.4s ease;
+    }
+    .branch-card:hover .branch-img{
+        transform:scale(1.05);
+    }
+    .branch-content{
+        padding:20px;
+        flex-grow:1;
+        display:flex;
+        flex-direction:column;
+    }
+    .branch-card .pin{color:var(--pink-600);font-size:1.5rem}
+    .branch-card h3{font-family:"Playfair Display",serif;font-size:1.25rem;margin:8px 0}
+    .branch-card address{font-style:normal;color:#4b5563;font-size:.92rem;margin-bottom:15px;line-height:1.5}
+    .map-btn{
+        display:inline-block;
+        margin-top:auto;
+        font-size:0.9rem;
+        font-weight:600;
+        color:#db2777;
+        text-decoration:none;
+        transition:color 0.2s ease;
+    }
+    .map-btn:hover{
+        color:#be185d;
+        text-decoration:underline;
+    }
+    .branch-map{
+        width:100%;
+        height:150px;
+        border-top:1px solid #f3f4f6;
+        background:#f9fafb;
+    }
+
+    .hours-box{margin-top:24px;background:var(--ink);color:#fff;border-radius:22px;padding:25px 30px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .hours-box p{margin:4px 0 0;color:#E8D8DE;font-size:.87rem}
+    .hours-box strong{color:#FFC3D8}
+    
+    /* Testimonials Grid */
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+    .testimonial-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 10px 25px rgba(219, 39, 119, 0.08);
+        border: 1px solid rgba(255, 182, 193, 0.4);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(219, 39, 119, 0.15);
+    }
+    .stars {
+        color: #f59e0b;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        letter-spacing: 2px;
+    }
+    .testimonial-text {
+        color: #4b5563;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .author-avatar {
+        width: 42px;
+        height: 42px;
+        background: var(--pink-600, #db2777);
+        color: #ffffff;
+        font-weight: 700;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 1.1rem;
+    }
+    .testimonial-author strong {
+        display: block;
+        color: #1f2937;
+        font-size: 0.95rem;
+    }
+    .testimonial-author small {
+        color: #9ca3af;
+        font-size: 0.8rem;
+    }
+
+    /* Booking Section */
+    .booking-section{background:linear-gradient(130deg,#F9D8E4,#FFF7FA 55%,#FCE7EF)}
+    .booking-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:start}
+    .booking-copy{position:sticky;top:115px}
+    .booking-copy p{color:var(--muted)}
+    .booking-contact-box {
+        background: rgba(255, 182, 193, 0.15);
+        border-left: 4px solid #db2777;
+        padding: 15px 20px;
+        border-radius: 0 12px 12px 0;
+        margin: 20px 0;
+    }
+    .contact-line{display:flex;gap:10px;align-items:center;font-size: 1.05rem;font-weight:800;margin-bottom:8px}
+    .contact-line span{width:39px;height:39px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--pink-700)}
+    .contact-line a{color:#1f2937;text-decoration:none;transition:color .2s ease}
+    .contact-line a:hover{color:#db2777;text-decoration:underline}
+    .booking-info-box p{font-size:.95rem;color:#4b5563;line-height:1.6;margin-bottom:12px}
+    
+    .form-card{background:#fff;border-radius:28px;padding:32px;box-shadow:var(--shadow);border:1px solid #F3DCE5}
+    .form-card h3{font-family:"Playfair Display",serif;font-size:1.7rem;margin-bottom:5px}
+    .form-card>p{color:var(--muted);font-size:.87rem;margin-bottom:23px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.82rem;font-weight:800}
+    .field input,.field select,.field textarea{width:100%;border:1px solid #EBD8E0;border-radius:12px;padding:13px 14px;background:#FFFCFD;outline:none;color:var(--ink);transition:.2s}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--pink-500);box-shadow:0 0 0 3px #e616711a}
+    .field textarea{min-height:100px;resize:vertical}
+    .field small{font-size:.74rem;color:var(--muted)}
+    .consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;color:var(--muted);margin:18px 0}
+    .consent input{margin-top:4px;accent-color:var(--pink-600)}
+    .form-submit{width:100%}
+    .form-disclaimer{font-size:.73rem;color:var(--muted);text-align:center;margin:12px 0 0}
+    
+    /* Footer & Social Icons */
+    footer{background:#1B1116;color:#fff;padding:55px 0 22px}
+    .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:45px}
+    footer .brand-name{color:#fff}
+    footer p,footer li{color:#D5C5CC;font-size:.86rem}
+    footer h3{font-family:"Playfair Display",serif;font-size:1.25rem}
+    footer ul{list-style:none;padding:0;display:grid;gap:8px}
+    footer a:hover{color:#FFB8D1}
+    .footer-social{margin-top:18px;display:flex;gap:12px}
+    .footer-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background-color:rgba(255,255,182,.08);border:1px solid rgba(255,182,193,.2);border-radius:50%;color:#fff;transition:all .3s ease}
+    .social-icon{width:18px;height:18px;fill:currentColor}
+    .footer-social a:hover{background-color:#db2777;border-color:#db2777;transform:translateY(-3px);color:#fff}
+    .footer-bottom{border-top:1px solid #49333D;margin-top:35px;padding-top:20px;display:flex;justify-content:space-between;gap:15px;color:#BCAAB2;font-size:.77rem}
+    
+    .float-wa{position:fixed;right:20px;bottom:20px;z-index:45;background:#1FAE62;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;box-shadow:0 9px 25px #145a363d;border:3px solid #fff}
+    .modal{position:fixed;inset:0;background:rgba(24,10,17,.65);z-index:100;display:none;align-items:center;justify-content:center;padding:18px}
+    .modal.open{display:flex}
+    .modal-dialog{width:min(650px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:25px;box-shadow:0 25px 90px #0005;position:relative}
+    .modal-head{background:linear-gradient(120deg,#FBE5EC,#FFF7FA);padding:25px 30px;border-bottom:1px solid var(--line)}
+    .modal-head h3{font-family:"Playfair Display",serif;font-size:1.65rem;margin:0 40px 5px 0}
+    .modal-head p{color:var(--muted);font-size:.83rem;margin:0}
+    .modal-body{padding:25px 30px 30px}
+    .modal-close{position:absolute;right:17px;top:17px;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:var(--ink);font-size:1.35rem;box-shadow:0 3px 12px #0001}
+    .mobile-cta{display:none}
+
+    /* Keyframes */
+    @keyframes floatAnimation {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+        100% { transform: translateY(0px); }
+    }
+    @keyframes pulseBadge {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* Responsive Breakpoints */
+    @media(max-width:980px){
+      .nav-links{gap:14px;font-size:.8rem}.nav-actions .btn{display:none}
+      .hero-note{right:25px;bottom:75px}.category-grid{grid-template-columns:repeat(2,1fr)}
+      .package-grid{grid-template-columns:repeat(2,1fr)}.branch-grid{grid-template-columns:1fr 1fr}
+      .about-grid{gap:35px}.booking-grid{gap:25px}
+    }
+    @media(max-width:760px){
+      .container{width:min(100% - 30px,600px)}
+      .topbar-inner{justify-content:center;text-align:center}.topbar-inner span:first-child{display:none}
+      .nav{height:68px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#FFF8FA;padding:18px 22px 24px;border-bottom:1px solid var(--line);box-shadow:0 15px 25px #6e24401a;flex-direction:column;align-items:stretch;gap:0}
+      .nav-links.show{display:flex}.nav-links a{padding:12px 5px;border-bottom:1px solid #F5E5EB}
+      .brand{min-width:0}.brand-name{font-size:.73rem}.brand-name small{font-size:.54rem}
+      .hero{min-height:700px;align-items:flex-start}.hero:before{background:linear-gradient(90deg,rgba(28,13,20,.78),rgba(42,18,29,.44)),url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85") 58% center/cover no-repeat}
+      .hero-content{padding:85px 0 150px}.hero h1{font-size:clamp(3rem,13vw,4.6rem)}.hero p{font-size:.98rem}
+      .hero-note{bottom:40px;right:18px;padding:12px 16px;max-width:180px}.hero-note strong{font-size:1.1rem}
+      .trust-grid{grid-template-columns:1fr}.trust-item{padding:15px 19px}.trust-item+.trust-item{border-left:0;border-top:1px solid var(--line)}
+      section{padding:72px 0}.section-head{margin-bottom:32px}
+      .about-grid,.booking-grid{grid-template-columns:1fr}.about-visual{min-height:380px;order:2}.about-copy{order:1}.about-photo{right:35px}
+      .package-grid{grid-template-columns:1fr}.package-card{padding:23px}
+      .special-grid,.branch-grid{grid-template-columns:1fr}.hours-box{align-items:flex-start;flex-direction:column}
+      .booking-copy{position:static}.form-card{padding:23px 18px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+      .footer-grid{grid-template-columns:1fr;gap:25px}.footer-bottom{flex-direction:column}
+      .mobile-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:44;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);gap:10px}
+      .mobile-cta .btn{flex:1;padding:12px 10px;font-size:.82rem}.float-wa{bottom:82px;width:52px;height:52px}
+      body{padding-bottom:65px}
+    }
+    @media(max-width:430px){.category-grid{grid-template-columns:1fr}.choice-list{grid-template-columns:1fr}.hero-actions .btn{width:100%}.hero-points{gap:9px;flex-direction:column}.promo-frame{min-height:220px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+    /* Gaya untuk ruang butang bawah poster promo */
+    .promo-action-wrap {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .promo-select-btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 0.95rem;
+        padding: 12px 20px;
+        box-shadow: 0 8px 20px rgba(230, 22, 113, 0.25);
+    }
+
+    /* Cerahkan logo di dalam footer supaya nampak jelas atas background gelap */
+        footer .brand-logo-img {
+        background: #ffffff;
+        padding: 8px 12px;
+        border-radius: 12px;
+        height: 75px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Mengawal kotak teks bergerak */
+    .topbar-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      flex: 1;
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee-anim 20s linear infinite;
+    }
+
+    .marquee-item {
+      display: inline-block;
+      padding-right: 50px; /* Jarak antara teks pertama dan ulangan kedua */
+    }
+
+    .marquee-icon {
+      vertical-align: -2px;
+      margin-right: 6px;
+    }
+
+    /* Kelajuan pergerakan (tukar 20s ke nombor lebih kecil jika mahu lebih laju) */
+    @keyframes marquee-anim {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Teks berhenti bergerak sekiranya tetikus (mouse) diletakkan di atasnya */
+    .topbar-marquee:hover .marquee-content {
+      animation-play-state: paused;
+    }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      
+      <!-- Bahagian Bergerak dengan Ikon Spa / Bunga -->
+      <div class="topbar-marquee">
+        <div class="marquee-content">
+          <span class="marquee-item">
+            <!-- Ikon SVG Spa/Daun -->
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="marquee-icon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.5 12 13 13 10"/></svg>
+            Ruang penjagaan dan ketenangan khusus untuk muslimah
+          </span>
+          <!-- Diulang untuk kesan gelung (loop) yang lancar -->
+          <span class="marquee-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="marquee-icon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.5 12 13 13 10"/></svg>
+            Ruang penjagaan dan ketenangan khusus untuk muslimah
+          </span>
+        </div>
+      </div>
+
+      <!-- Bahagian Nombor Telefon -->
+      <div class="topbar-contact">
+        Tempahan: <a href="tel:0105240334">010-524 0334</a> · <a href="tel:0194100334">019-410 0334</a>
+      </div>
+
+    </div>
+  </div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#utama" aria-label="Humaira Muslimah Salon dan Spa - Utama">
+        <!-- Logo Humaira -->
+        <img src="Humaira Muslimah Salon Spa Logo.png" alt="Logo Humaira" class="brand-logo-img">
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="#utama">Utama</a>
+        <a href="#tentang">Tentang Kami</a>
+        <!-- <a href="#promo">Promosi</a> -->
+        <a href="#pakej">Pakej</a>
+        <!-- <a href="#rawatan">Rawatan</a> -->
+        <a href="#testimoni">Testimoni</a> <!-- Added Testimoni link here -->
+        <a href="#cawangan">Cawangan</a>
+        <a href="#tempahan">Hubungi</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#tempahan">Tempah Sekarang ↗</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="utama">
+      <div class="container"><div class="hero-content">
+        <span class="eyebrow">Kecantikan · Kesihatan · Keselesaan</span>
+        <h1>Alami Rahsia <span>Keanggunan.</span></h1>
+        <p>Luangkan masa untuk diri sendiri dalam suasana penjagaan muslimah yang selesa. Nikmati pilihan rawatan rambut, wajah dan badan di HUMAIRA MUSLIMAH SALON & SPA.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#pakej">Lihat Pakej Rawatan <span>→</span></a><a class="btn btn-light" href="#tempahan">Buat Temujanji</a></div>
+        <div class="hero-points"><span>3 cawangan sekitar Ipoh</span><span>Dibuka setiap hari</span><span>Slot selepas waktu operasi tersedia</span></div>
+      </div></div>
+      <div class="hero-note"><strong>Me-time anda bermula di sini</strong><small>Pilih rawatan yang sesuai dan tempah slot pilihan anda.</small></div>
+    </section>
+
+    <div class="container trust-strip"><div class="trust-grid">
+      <div class="trust-item"><span class="trust-icon">✿</span><div><strong>Pilihan Rawatan Menyeluruh</strong><small>Rambut, wajah dan badan</small></div></div>
+      <div class="trust-item"><span class="trust-icon">♡</span><div><strong>Untuk Muslimah</strong><small>Ruang penjagaan khusus wanita</small></div></div>
+      <div class="trust-item"><span class="trust-icon">⌖</span><div><strong>3 Lokasi Cawangan</strong><small>Maxwell, Cempaka & Perpaduan</small></div></div>
+    </div></div>
+
+    <section id="tentang">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <!-- Gantikan div kosong dengan tag img untuk paparkan gambar sebenar -->
+          <img src="image.jpg" alt="Suasana salon kecantikan Humaira" class="about-photo-img">
+          
+          <div class="about-stamp">Cantik · Sihat · Yakin</div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">Kenali Humaira</span>
+          <h2>Masa untuk manjakan diri, dengan penuh keselesaan.</h2>
+          <p>Di HUMAIRA MUSLIMAH SALON & SPA, kami menyediakan pilihan rawatan kecantikan dan penjagaan diri untuk membantu anda menikmati waktu rehat yang berkualiti.</p>
+          <p>Daripada penjagaan rambut dan rawatan wajah hinggalah rawatan badan serta mandian istimewa, pilih pengalaman yang paling sesuai dengan keperluan anda.</p>
+          <ul class="check-list">
+            <li>Pilihan rawatan individu dan pakej lengkap</li>
+            <li>Harga ahli dan bukan ahli untuk rawatan terpilih</li>
+            <li>Tiga cawangan untuk memudahkan tempahan</li>
+            <li>Temujanji selepas waktu operasi boleh dimohon</li>
+          </ul>
+          <a class="btn btn-primary" href="#tempahan">Rancang Waktu Penjagaan Anda ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section" id="kelebihan" style="padding: 95px 0; background: #fff;">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Kenapa Pilih Kami</span>
+          <h2>Kelebihan Humaira Muslimah</h2>
+          <p class="section-intro">Kami komited menyediakan ruang penjagaan diri yang selesa, aurat terpelihara, dan kualiti perkhidmatan terbaik khusus untuk wanita.</p>
+        </div>
+
+        <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px;">
+          
+          <!-- Kelebihan 1: Khusus Muslimah -->
+          <div class="feature-card" style="background: #FFF8FA; border: 1px solid var(--line, #F1D6E0); border-radius: 22px; padding: 30px; transition: .25s; box-shadow: 0 8px 25px rgba(120,35,72,.03);">
+            <div class="feature-icon" style="width: 52px; height: 52px; border-radius: 16px; background: var(--pink-100, #FBE5EC); display: grid; place-items: center; color: var(--pink-700, #C70F5E); margin-bottom: 20px;">
+              <!-- Ikon Vektor SVG: Pengguna / Wanita -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; color: var(--ink);">100% Khusus Muslimah</h3>
+            <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Persekitaran salon dan spa yang eksklusif serta tertutup. Anda boleh mendapatkan rawatan dengan tenang dan yakin kerana aurat terpelihara sepenuhnya.</p>
+          </div>
+
+          <!-- Kelebihan 2: Produk Halal & Selamat -->
+          <div class="feature-card" style="background: #FFF8FA; border: 1px solid var(--line, #F1D6E0); border-radius: 22px; padding: 30px; transition: .25s; box-shadow: 0 8px 25px rgba(120,35,72,.03);">
+            <div class="feature-icon" style="width: 52px; height: 52px; border-radius: 16px; background: var(--pink-100, #FBE5EC); display: grid; place-items: center; color: var(--pink-700, #C70F5E); margin-bottom: 20px;">
+              <!-- Ikon Vektor SVG: Daun / Semulajadi -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.5 12 13 13 10"/></svg>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; color: var(--ink);">Produk Halal & Berkualiti</h3>
+            <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Pemilihan produk yang diyakini halal, suci, serta selamat untuk kesihatan kulit dan rambut anda.</p>
+          </div>
+
+          <!-- Kelebihan 3: Terapis Berpengalaman -->
+          <div class="feature-card" style="background: #FFF8FA; border: 1px solid var(--line, #F1D6E0); border-radius: 22px; padding: 30px; transition: .25s; box-shadow: 0 8px 25px rgba(120,35,72,.03);">
+            <div class="feature-icon" style="width: 52px; height: 52px; border-radius: 16px; background: var(--pink-100, #FBE5EC); display: grid; place-items: center; color: var(--pink-700, #C70F5E); margin-bottom: 20px;">
+              <!-- Ikon Vektor SVG: Bintang / Kualiti / Terapis -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; color: var(--ink);">Terapis Profesional Wanita</h3>
+            <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Khidmat rundingan dan rawatan disempurnakan oleh terapis wanita yang mahir, berhemah, serta berpengalaman luas.</p>
+          </div>
+
+          <!-- Kelebihan 4: 3 Lokasi Cawangan -->
+          <div class="feature-card" style="background: #FFF8FA; border: 1px solid var(--line, #F1D6E0); border-radius: 22px; padding: 30px; transition: .25s; box-shadow: 0 8px 25px rgba(120,35,72,.03);">
+            <div class="feature-icon" style="width: 52px; height: 52px; border-radius: 16px; background: var(--pink-100, #FBE5EC); display: grid; place-items: center; color: var(--pink-700, #C70F5E); margin-bottom: 20px;">
+              <!-- Ikon Vektor SVG: Lokasi / Map Pin -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; color: var(--ink);">3 Lokasi Cawangan</h3>
+            <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Mudah dikunjungi di Jalan Maxwell, Taman Cempaka, dan Taman Perpaduan mengikut keselesaan masa anda.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="promo">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Tawaran Istimewa Bulan Ini</span>
+          <h2>Promosi Bulanan</h2>
+          <p class="section-intro">Semak tawaran terkini HUMAIRA MUSLIMAH SALON & SPA di sini. Jangan lepaskan peluang keemasan ini!</p>
+        </div>
+        
+        <!-- Bingkai Poster (Hanya ada gambar & badge) -->
+        <div class="promo-frame" id="promoFrame">
+          <div class="promo-badge">Eksklusif Bulan Ini! ✦</div>
+          
+          <!-- Klik gambar buka paparan besar (modal imej) -->
+          <a href="javascript:void(0);" class="promo-link-wrapper" onclick="bukaPosterBesar()" aria-label="Besarkan poster promosi">
+            <img src="Poster Promo.jpeg" alt="Promosi Bulanan Humaira Muslimah Salon & Spa" class="promo-poster-img">
+          </a>
+        </div>
+
+        <!-- Butang Pilih Promo (Standalone di luar bingkai poster) -->
+        <div class="promo-action-standalone">
+          <button type="button" class="btn btn-primary promo-select-btn" onclick="pilihPromosi()">
+            Pilih Promo Ini ↗
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal / Pop-up untuk Papar Poster Besar -->
+    <div class="image-modal" id="imageModal" onclick="tutupPosterBesar()">
+      <div class="image-modal-content">
+        <span class="image-modal-close">&times;</span>
+        <img src="Poster Promo.jpeg" alt="Poster Besar Promosi">
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Penjagaan dari hujung rambut ke hujung kaki</span>
+          <h2>Pilih Rawatan Anda</h2>
+          <p class="section-intro">Pelbagai pilihan rawatan untuk melengkapkan rutin penjagaan diri anda.</p>
+        </div>
+        
+        <div class="category-grid">
+          
+          <!-- Rawatan Rambut -->
+          <article class="category-card">
+            <div class="cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+            </div>
+            <h3>Rawatan Rambut</h3>
+            <p>Potongan, cucian, styling dan rawatan rambut.</p>
+          </article>
+
+          <!-- Rawatan Muka -->
+          <article class="category-card">
+            <div class="cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3>Rawatan Muka</h3>
+            <p>Facial refreshing, vitamin, collagen dan pilihan rawatan lain.</p>
+          </article>
+
+          <!-- Rawatan Badan -->
+          <article class="category-card">
+            <div class="cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.5 12 13 13 10"/></svg>
+            </div>
+            <h3>Rawatan Badan</h3>
+            <p>Sauna, scrub, urutan, penjagaan tangan dan kaki.</p>
+          </article>
+
+          <!-- Mandian Jakuzi -->
+          <article class="category-card">
+            <div class="cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h20v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6z"/><path d="M6 10v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-9"/><path d="M9 3c0 1.5 1 2 3 2s3-.5 3-2"/><path d="M6 14h12"/></svg>
+            </div>
+            <h3>Mandian Jakuzi</h3>
+            <p>Pilihan mandian susu, rempah, ais dan Seri Purnama.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="pakej">
+      <div class="container"><div class="section-head"><span class="eyebrow">Pilihan pelanggan</span><h2>Pakej Rawatan</h2><p class="section-intro">Pilih pakej mengikut masa dan pengalaman penjagaan yang anda inginkan. Tekan “Pilih Pakej Ini” untuk terus isi borang tempahan.</p></div>
+        <div class="package-toolbar" role="group" aria-label="Tapis pakej">
+          <button class="filter-btn active" data-filter="all">Semua Pakej</button><button class="filter-btn" data-filter="utama">Pakej Utama</button><button class="filter-btn" data-filter="istimewa">Pakej Istimewa</button><button class="filter-btn" data-filter="mini">Pakej Mini</button>
+        </div>
+        <div class="package-grid" id="packageGrid"></div>
+        <p class="mini-note">Harga yang ditanda “++” tertakluk kepada konsultasi dan keperluan rambut/rawatan. Sila sahkan harga akhir dengan pihak salon sebelum rawatan.</p>
+      </div>
+    </section>
+
+    <section id="rawatan">
+      <div class="container"><div class="section-head"><span class="eyebrow">Menu rawatan</span><h2>Senarai Rawatan & Harga</h2><p class="section-intro">Rujuk senarai harga di bawah untuk memilih rawatan yang sesuai. Harga ahli dan bukan ahli dipaparkan bagi rawatan terpilih.</p></div>
+        <div class="treatment-block"><h3>01. Rawatan Rambut</h3><div class="table-wrap"><table><thead><tr><th>Jenis Rawatan</th><th>Harga</th></tr></thead><tbody id="hairRows"></tbody></table></div></div>
+        <div class="treatment-block"><h3>02. Rawatan Muka</h3><div class="table-wrap"><table><thead><tr><th>Jenis Rawatan</th><th>Ahli</th><th>Bukan Ahli</th></tr></thead><tbody id="faceRows"></tbody></table></div></div>
+        <div class="treatment-block"><h3>03. Rawatan Badan</h3><div class="table-wrap"><table><thead><tr><th>Jenis Rawatan</th><th>Ahli</th><th>Bukan Ahli</th></tr></thead><tbody id="bodyRows"></tbody></table></div></div>
+        <div class="treatment-block"><h3>04. Mandian (Tab Jakuzi)</h3><div class="table-wrap"><table><thead><tr><th>Jenis Mandian</th><th>Ahli</th><th>Bukan Ahli</th></tr></thead><tbody id="bathRows"></tbody></table></div></div>
+      </div>
+    </section>
+
+    <section class="soft-section">
+      <div class="container"><div class="section-head"><span class="eyebrow">Pilihan fleksibel</span><h2>Pakej Pilih & Gabung</h2><p class="section-intro">Gabungkan rawatan pilihan mengikut pakej yang ditawarkan.</p></div>
+        <div class="special-grid">
+          <article class="special-panel pink"><span class="eyebrow">RM99 · 2 jam</span><h3>Pakej 3 Mewangi</h3><p>Pilih 3 rawatan daripada senarai berikut:</p><ol class="choice-list"><li>Rendaman Kaki Detox</li><li>Resdung + Masker</li><li>Sauna / Tangas</li><li>Facial Refreshing</li><li>Urut Kaki</li><li>Manicure</li><li>Hair Wash + Shoulder Massage</li></ol><button class="btn btn-primary choose-package" data-package="Pakej 3 Mewangi — RM99">Pilih Pakej Ini →</button></article>
+          <article class="special-panel"><span class="eyebrow">RM189 · 3 jam</span><h3>Pakej 3 Purnama</h3><p>Pilih 3 rawatan daripada senarai berikut:</p><ol class="choice-list"><li>Facial Vita C + Whitening</li><li>Facial Collagen</li><li>Facial Detox (Acne)</li><li>Fullbody Massage</li><li>Body Bleaching</li><li>Body Scrub</li><li>Hair Treatment</li><li>Mandian Seri Purnama</li></ol><p><strong>Bonus:</strong> Percuma rendaman kaki.</p><button class="btn btn-primary choose-package" data-package="Pakej 3 Purnama — RM189">Pilih Pakej Ini →</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="galeri" style="padding: 95px 0; background: var(--pink-55, #FFF8FA);">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Suasana & Rawatan</span>
+          <h2>Galeri Humaira Muslimah</h2>
+          <p class="section-intro">Suasana ruang yang selesa, privasi, dan tenang khas untuk memanjakan diri anda.</p>
+        </div>
+
+        <!-- Grid Gambar Galeri -->
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px;">
+          
+          <!-- Gambar 1 -->
+          <div style="border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid var(--line, #F1D6E0); box-shadow: 0 8px 25px rgba(120,35,72,.04); transition: transform 0.3s ease;">
+            <img src="gambar 1.jpg" alt="Suasana Salon" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+          </div>
+
+          <!-- Gambar 2 -->
+          <div style="border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid var(--line, #F1D6E0); box-shadow: 0 8px 25px rgba(120,35,72,.04); transition: transform 0.3s ease;">
+            <img src="gambar 2.jpg" alt="Rawatan Rambut" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+          </div>
+
+          <!-- Gambar 3 -->
+          <div style="border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid var(--line, #F1D6E0); box-shadow: 0 8px 25px rgba(120,35,72,.04); transition: transform 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=85" alt="Spa & Urutan" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="testimoni">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Apa Kata Pelanggan</span>
+          <h2>Pengalaman & Testimoni</h2>
+          <p class="section-intro">Kepuasan dan keselesaan anda adalah keutamaan kami. Ini sebahagian maklum balas daripada pelanggan setia Humaira.</p>
+        </div>
+
+        <div class="testimonial-grid">
+          <!-- Testimoni 1 -->
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Saya banyak kali gi humaira spa di taman cempaka sebelum zaman saya single sampai sekarang kahwin,service ok dari a to z.Saya repeat lagi insya allah bulan depan.Staff semua baik termasuk boss2 sekali 🥰🥰🥰"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">S</div>
+              <div>
+                <strong>Mas Tasha</strong>
+                <small>Cawangan Taman Cempaka</small>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimoni 2 -->
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Saya amik service “cuci rambut”. Saya rasa puas hati and rasa nak repeat. Heheh tapi kalau lebihlan masa urut kepala lagi mesti best. Sedap betul akak tu urut kepala. Kita dah la tengahh sakit kepala, bula ada org picit rasa nak nangis. Thank kak. Ada masa saya repeat."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">N</div>
+              <div>
+                <strong>Ainasuha Shazwani</strong>
+                <small>Cawangan Jalan Maxwell</small>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimoni 3 -->
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Staff dia baik. Cantik dia potong rambut saya. Fresh dan wangi lepas cuci"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">F</div>
+              <div>
+                <strong>Nur Hidayu Che Saadon</strong>
+                <small>Cawangan Taman Perpaduan</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cawangan">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Kunjungi Kami</span>
+          <h2>3 Cawangan, Satu Destinasi Penjagaan</h2>
+          <p class="section-intro">Pilih cawangan yang paling dekat dan nyatakan pilihan anda semasa membuat tempahan.</p>
+        </div>
+        
+        <div class="branch-grid">
+          
+          <!-- Cawangan 1: Jalan Maxwell -->
+          <article class="branch-card">
+            <div class="branch-img-container">
+              <img src="Cawangan 1.png" alt="Cawangan Jalan Maxwell" class="branch-img">
+            </div>
+            <div class="branch-content">
+              <div class="pin">⌖</div>
+              <h3>Jalan Maxwell</h3>
+              <address>2b, Jalan Labrooy, Taman Pari, 30010 Ipoh, Perak.</address>
+              <a class="map-btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/M2Q2DEQsWeACMwy19">Buka di Google Maps ↗</a>
+            </div>
+            <!-- Peta Google Map -->
+            <div class="branch-map">
+              <iframe title="Peta Jalan Maxwell" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63630.483372937655!2d101.00261852167968!3d4.610984800000025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31caec9ce7e71eb3%3A0xb9d4a9bf07da2ea3!2sHumaira%20Hair%20And%20Beauty%20Salon!5e0!3m2!1sen!2smy!4v1793769276450!5m2!1sen!2smy" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </article>
+
+          <!-- Cawangan 2: Taman Cempaka -->
+          <article class="branch-card">
+            <div class="branch-img-container">
+              <img src="Cawangan 2.png" alt="Cawangan Taman Cempaka" class="branch-img">
+            </div>
+            <div class="branch-content">
+              <div class="pin">⌖</div>
+              <h3>Taman Cempaka</h3>
+              <address>27, Lengkok Perpaduan, Taman Perpaduan, 31400 Ulu Kinta, Perak.</address>
+              <a class="map-btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/8Ddg5ezoHDdzgbEbA">Buka di Google Maps ↗</a>
+            </div>
+            <!-- Peta Google Map -->
+            <div class="branch-map">
+              <iframe title="Peta Taman Cempaka" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63631.90764176803!2d101.05440502167963!3d4.5950558000000035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31caed4433275ec5%3A0xb78bf4f983e22dc8!2sMUSLIMAH%20SALON%20SPA%20HUMAIRA%20TAMAN%20CEMPAKA!5e0!3m2!1sen!2smy!4v1793769374190!5m2!1sen!2smy" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </article>
+
+          <!-- Cawangan 3: Taman Perpaduan -->
+          <article class="branch-card">
+            <div class="branch-img-container">
+              <img src="Cawangan 3.png" alt="Cawangan Taman Perpaduan" class="branch-img">
+            </div>
+            <div class="branch-content">
+              <div class="pin">⌖</div>
+              <h3>Taman Perpaduan</h3>
+              <address>No. 27, Lengkok Perpaduan, Taman Perpaduan, 31150 Ulu Kinta, Perak.</address>
+              <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=No.+27+Lengkok+Perpaduan+Taman+Perpaduan+31150+Ulu+Kinta+Perak">Buka di Google Maps ↗</a>
+            </div>
+            <!-- Peta Google Map -->
+            <div class="branch-map">
+              <iframe title="Peta Taman Perpaduan" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63628.22148402226!2d101.08162172167965!3d4.636169500000023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31caed4cdef704db%3A0xdd11e9ee35d305db!2sHumaira%20Muslimah%20Hair%20Salon%20%26%20Spa!5e0!3m2!1sen!2smy!4v1793769096754!5m2!1sen!2smy" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Waktu Operasi -->
+        <div class="hours-box">
+          <div>
+            <strong>Waktu Operasi</strong>
+            <p>Setiap hari · 10.00 pagi – 6.45 petang</p>
+          </div>
+          <div>
+            <strong>Temujanji Selepas Waktu Operasi</strong>
+            <p>Slot selepas 6.45 petang boleh dimohon melalui temujanji sahaja dan tertakluk kepada pengesahan pihak salon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-section" id="tempahan">
+      <div class="container booking-grid">
+        
+        <!-- Kolom Kiri: Maklumat & Saluran Hubungi -->
+        <div class="booking-copy">
+          <span class="eyebrow">Tempahan & Pertanyaan</span>
+          <h2>Jom aturkan sesi penjagaan anda.</h2>
+          <p>Isi maklumat ringkas di bawah. Permintaan tempahan akan dihantar terus ke WhatsApp untuk semakan dan pengesahan pihak HUMAIRA MUSLIMAH SALON & SPA.</p>
+          
+          <div class="booking-contact-box">
+            <div class="contact-line">
+              <span>☎</span> <a href="tel:0105240334">010-524 0334</a>
+            </div>
+            <div class="contact-line">
+              <span>☎</span> <a href="tel:0194100334">019-410 0334</a>
+            </div>
+          </div>
+
+          <div class="booking-info-box">
+            <p><strong>Waktu Operasi:</strong><br>Setiap hari, 10.00 pagi – 6.45 petang.</p>
+            <p><strong>Di luar waktu operasi?</strong><br>Nyatakan masa pilihan anda. Slot selepas waktu operasi adalah melalui temujanji sahaja.</p>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan: Borang Tempahan -->
+        <form class="form-card booking-form" id="mainBookingForm">
+          <h3>Borang Tempahan</h3>
+          <p>Lengkapkan maklumat berikut untuk kami bantu semak slot anda.</p>
+          
+          <div class="form-grid">
+            <div class="field">
+              <label for="mainName">Nama penuh *</label>
+              <input id="mainName" name="name" required autocomplete="name" placeholder="Nama anda">
+            </div>
+            <div class="field">
+              <label for="mainPhone">Nombor telefon *</label>
+              <input id="mainPhone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="Contoh: 0123456789">
+            </div>
+            <div class="field">
+              <label for="mainBranch">Pilihan cawangan *</label>
+              <select id="mainBranch" name="branch" required>
+                <option value="">Pilih cawangan</option>
+                <option>Jalan Maxwell</option>
+                <option>Taman Cempaka</option>
+                <option>Taman Perpaduan</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="mainService">Rawatan / Pakej *</label>
+              <select id="mainService" name="service" required>
+                <option value="">Pilih rawatan atau pakej</option>
+                <option>Rawatan Rambut</option>
+                <option>Rawatan Muka</option>
+                <option>Rawatan Badan</option>
+                <option>Mandian Jakuzi</option>
+                <option>Pakej Utama</option>
+                <option>Pakej Istimewa</option>
+                <option>Pakej Mini</option>
+                <option>Pakej 3 Mewangi</option>
+                <option>Pakej 3 Purnama</option>
+                <option>Lain-lain / Pertanyaan</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="mainDate">Tarikh pilihan *</label>
+              <input type="date" id="mainDate" name="date" required>
+            </div>
+            <div class="field">
+              <label for="mainTime">Masa pilihan *</label>
+              <input type="time" id="mainTime" name="time" required>
+              <small>Selepas 6.45 petang melalui temujanji sahaja.</small>
+            </div>
+            <div class="field full">
+              <label for="mainDetail">Nama pakej / rawatan khusus (jika tahu)</label>
+              <input id="mainDetail" name="detail" placeholder="Contoh: Pakej Bonda / Hair Keratin Treatment">
+            </div>
+            <div class="field full">
+              <label for="mainNotes">Catatan tambahan</label>
+              <textarea id="mainNotes" name="notes" placeholder="Nyatakan pilihan rawatan, pertanyaan atau permintaan anda..."></textarea>
+            </div>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Saya mengesahkan maklumat yang diberikan adalah betul dan bersetuju untuk dihubungi berkenaan permintaan tempahan ini.</span>
+          </label>
+
+          <button class="btn btn-primary form-submit" type="submit">Hantar Permintaan Melalui WhatsApp ↗</button>
+          <p class="form-disclaimer">Tempahan hanya disahkan selepas mendapat maklum balas daripada pihak salon.</p>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Kolom 1: Logo / Info & Media Sosial -->
+        <div>
+          <a class="brand" href="#utama">
+            <img src="Humaira Muslimah Salon Spa Logo.png" alt="Logo Humaira" class="brand-logo-img">
+          </a>
+          <p style="margin-top:18px;max-width:330px">Alami Rahsia Keanggunan. Ruang penjagaan rambut, wajah dan badan untuk muslimah.</p>
+          
+          <!-- Pautan Media Sosial (Ikon) -->
+          <div class="footer-social">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=100054434172585" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.242V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002-.001a2.895 2.895 0 0 1 3.144-4.53v-3.4a6.295 6.295 0 0 0-6.326 6.287A6.332 6.332 0 0 0 9.87 22.022a6.327 6.327 0 0 0 6.292-5.748V9.782a8.212 8.212 0 0 0 4.887 1.637V7.935a4.832 4.832 0 0 1-1.46-1.249z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Pautan Pantas (Navigasi Lengkap) -->
+        <div>
+          <h3>Pautan Pantas</h3>
+          <ul>
+            <li><a href="#utama">Utama</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <!-- <li><a href="#promo">Promosi Bulanan</a></li> -->
+            <li><a href="#pakej">Pakej Rawatan</a></li>
+            <!-- <li><a href="#rawatan">Senarai Rawatan</a></li> -->
+            <li><a href="#testimoni">Testimoni</a></li>
+            <li><a href="#cawangan">Lokasi Cawangan</a></li>
+            <li><a href="#tempahan">Hubungi & Tempahan</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Hubungi Kami -->
+        <div>
+          <h3>Hubungi Kami</h3>
+          <ul>
+            <li><a href="tel:0105240334">010-524 0334</a></li>
+            <li><a href="tel:0194100334">019-410 0334</a></li>
+            <li>Setiap hari: 10.00 pagi – 6.45 petang</li>
+            <li>Slot selepas waktu operasi melalui temujanji sahaja</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bahagian Bawah Footer -->
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> HUMAIRA MUSLIMAH SALON & SPA. Hak cipta terpelihara.</span>
+        <span>Alami Rahsia Keanggunan.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/60105240334" target="_blank" rel="noopener" aria-label="WhatsApp Humaira">✆</a>
+  <div class="mobile-cta"><a class="btn btn-light" href="#pakej">Lihat Pakej</a><a class="btn btn-primary" href="#tempahan">Tempah Sekarang</a></div>
+
+  <div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-head"><button class="modal-close" id="modalClose" aria-label="Tutup borang">×</button><h3 id="modalTitle">Tempah Pakej Pilihan Anda</h3><p>Lengkapkan maklumat dan teruskan permintaan melalui WhatsApp.</p></div>
+      <div class="modal-body">
+        <form id="modalBookingForm">
+          <div class="form-grid">
+            <div class="field full"><label for="modalPackage">Pakej dipilih</label><input id="modalPackage" name="package" readonly required></div>
+            <div class="field"><label for="modalName">Nama penuh *</label><input id="modalName" name="name" required placeholder="Nama anda"></div>
+            <div class="field"><label for="modalPhone">Nombor telefon *</label><input id="modalPhone" name="phone" required inputmode="tel" placeholder="Contoh: 0123456789"></div>
+            <div class="field"><label for="modalBranch">Pilihan cawangan *</label><select id="modalBranch" name="branch" required><option value="">Pilih cawangan</option><option>Jalan Maxwell</option><option>Taman Cempaka</option><option>Taman Perpaduan</option></select></div>
+            <div class="field"><label for="modalDate">Tarikh pilihan *</label><input type="date" id="modalDate" name="date" required></div>
+            <div class="field"><label for="modalTime">Masa pilihan *</label><input type="time" id="modalTime" name="time" required></div>
+            <div class="field full"><label for="modalNotes">Catatan / rawatan tambahan</label><textarea id="modalNotes" name="notes" placeholder="Jika ada permintaan khas, tulis di sini..."></textarea></div>
+          </div>
+          <label class="consent"><input type="checkbox" required><span>Saya mengesahkan maklumat yang diberikan adalah betul dan bersetuju untuk dihubungi berkenaan permintaan tempahan ini.</span></label>
+          <button class="btn btn-primary form-submit" type="submit">Teruskan ke WhatsApp ↗</button><p class="form-disclaimer">Permintaan slot tertakluk kepada pengesahan pihak salon.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==============================
+    // KONFIGURASI MUDAH DIKEMASKINI
+    // ==============================
+    const CONFIG = {
+      whatsapp: "60105240334", // Nombor utama dalam format antarabangsa tanpa tanda +
+      social: {
+        facebook: "https://www.facebook.com/profile.php?id=100054434172585",  // Gantikan dengan URL Facebook rasmi
+        instagram: "#", // Gantikan dengan URL Instagram rasmi
+        tiktok: "#"     // Gantikan dengan URL TikTok rasmi
+      }
+    };
+
+    // Data pakej dipaparkan secara automatik dalam kad.
+    const packages = [
+      {name:"Pakej Bonda",price:"RM149",time:"2½ jam",group:"utama",items:["Sauna / Tangas","Fullbody Massage & Peranakan","Hair Wash"]},
+      {name:"Pakej Nilam",price:"RM149",time:"2 jam",group:"utama",items:["Rendaman Kaki","Body Scrub","Body Mask","Mandian Susu","Hair Wash"]},
+      {name:"Pakej Mekar",price:"RM149",time:"2½ jam",group:"utama",items:["Facial Collagen / Vitamin C","Hair Cut","Hair Wash","Shoulder Massage","Hair Treatment"]},
+      {name:"Pakej Baiduri",price:"RM159",time:"3 jam",group:"utama",items:["Rendaman Kaki Detox","Fullbody Massage","Pearl Glowing Facial","Hair Wash"]},
+      {name:"Pakej Puteri",price:"RM189",time:"3 jam",group:"utama",items:["Sauna","Body Scrub","Fullbody Massage","Mandian Seri Purnama"]},
+      {name:"Pakej Suri",price:"RM159",time:"3 jam",group:"utama",items:["Sauna","Fullbody Massage + Peranakan","Hair Wash","Facial Refreshing"]},
+      {name:"Pakej Segar",price:"RM159",time:"3 jam",group:"utama",items:["Rendaman Kaki","Body Scrub","Full Body Massage","Hair Wash"]},
+      {name:"Pakej Ratu",price:"RM199",time:"3½ jam",group:"istimewa",items:["Body Scrub","Mandian Susu","Fullbody Massage","Facial Collagen / Vitamin C"]},
+      {name:"Pakej Pengantin",price:"RM199",time:"2½ jam",group:"istimewa",items:["Sauna","Body Scrub","Body Mask","Mandian Seri Purnama","Hair Wash"]},
+      {name:"Pakej Mempelai",price:"RM279",time:"5 jam",group:"istimewa",items:["Sauna / Tangas","Body Scrub","Body Bleaching","Mandian Seri Purnama","Seri Purnama Facial","Hair Treatment"]},
+      {name:"Pakej A",price:"RM50–70",time:"45 minit",group:"mini",items:["Hair Cut","Hair Wash + Tonic","Shoulder Massage"]},
+      {name:"Pakej B",price:"RM99",time:"1 jam 15 minit",group:"mini",items:["Hair Cut","Hair Wash","Shoulder Massage","Hair Soft Treatment"]},
+      {name:"Pakej C",price:"RM59",time:"1 jam 30 minit",group:"mini",items:["Facial Refreshing","Hair Wash + Tonic","Shoulder Massage"]},
+      {name:"Pakej D",price:"RM89",time:"1 jam 30 minit",group:"mini",items:["Asap Resdung","Facial Treatment","Hair Wash + Tonic"]},
+      {name:"Pakej Santai",price:"RM89",time:"1 jam 45 minit",group:"mini",items:["Facial Collagen / Vitamin C","Hair Wash + Tonic","Shoulder Massage"]},
+      {name:"Foot Spa",price:"RM69",time:"1 jam 15 minit",group:"mini",items:["Rendaman Kaki","Foot Scrub","Foot Mask","Foot Massage"]},
+      {name:"Kuku Spa",price:"RM75",time:"1 jam 15 minit",group:"mini",items:["Rendaman Kaki","Manicure","Pedicure"]}
+    ];
+
+    const treatments = {
+      hair:[
+        ["Normal Cut","RM20–30"],["Styling Cut","RM25++"],["Iron / Blow Styling","RM25++"],["Hair Wash Blow","RM20++"],
+        ["Hair Yogurt Treatment","RM80++"],["Hair Colling Treatment / Hair Fall / Dandruff","RM80++"],["Hair Keratin Treatment","RM120++"],
+        ["Inai / Perm / Colour / Rebonding / Highlight","RM80++"],["Eyelash Perming with Face Refreshing","RM65++"],["Eye Brow Threading","RM15"]
+      ],
+      face:[
+        ["Facial Refreshing","RM35","RM38"],["Facial Vitamin C","RM65","RM69"],["Facial Gold + Collagen","RM80","RM85"],
+        ["Facial Detox (Jerawat)","RM80","RM85"],["Sinus (Asap Resdung)","RM28","RM30"],["Facial Rawatan Resdung","RM75","RM80"],
+        ["Facial Seri Purnama","RM80","RM85"],["HUMILARA Signature Facial (LED Treatment)","RM95","RM100"]
+      ],
+      body:[
+        ["Sauna Herba","RM30","RM33"],["Sauna Infrared","RM35","RM38"],["Tangas","RM35","RM38"],["Foot Massage","RM39","RM45"],
+        ["Body Scrub (Free Sauna)","RM85","RM89"],["Body Mask","RM55","RM60"],["Body Bleaching","RM55","RM60"],
+        ["Hand / Feet Bleaching","RM40","RM45"],["Rendaman Kaki Herba","RM35","RM38"],["Hand / Feet Waxing","RM40","RM45"],
+        ["Manicure","RM37","RM40"],["Pedicure","RM45","RM48"],["Full Body Massage","RM99","RM99"],["Full Body Massage + Peranakan","RM119","RM119"]
+      ],
+      bath:[
+        ["Mandian Susu","RM65","RM70"],["Mandian Rempah","RM65","RM70"],["Mandian Seri Purnama","RM75","RM80"],["Mandian Ais","RM65","RM70"]
+      ]
+    };
+
+    function renderPackages(filter="all"){
+      const grid=document.getElementById("packageGrid");
+      const shown=packages.filter(p=>filter==="all"||p.group===filter);
+      grid.innerHTML=shown.map((p,i)=>`
+        <article class="package-card ${p.group==="istimewa"?"featured":""}">
+          ${p.group==="istimewa"?'<span class="package-tag">Pilihan Istimewa</span>':""}
+          <h3>${p.name}</h3><div class="package-time">◷ ${p.time}</div>
+          <div class="package-price">${p.price} <small>/ seorang</small></div>
+          <ul>${p.items.map(item=>`<li>${item}</li>`).join("")}</ul>
+          <button class="btn btn-primary choose-package" type="button" data-package="${p.name} — ${p.price}">Pilih Pakej Ini →</button>
+        </article>`).join("");
+      grid.querySelectorAll(".choose-package").forEach(btn=>btn.addEventListener("click",()=>openBookingModal(btn.dataset.package)));
+    }
+    function renderRows(id,rows,columns){
+      document.getElementById(id).innerHTML=rows.map(row=>`<tr>${row.map((cell,i)=>`<td class="${i>0?'price':''}">${cell}</td>`).join("")}</tr>`).join("");
+    }
+    renderPackages();
+    renderRows("hairRows",treatments.hair,2);
+    renderRows("faceRows",treatments.face,3);
+    renderRows("bodyRows",treatments.body,3);
+    renderRows("bathRows",treatments.bath,3);
+
+    document.querySelectorAll(".filter-btn").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");renderPackages(btn.dataset.filter);
+      });
+    });
+
+    // Menu mudah alih
+    const menuToggle=document.getElementById("menuToggle");
+    const navLinks=document.getElementById("navLinks");
+    menuToggle.addEventListener("click",()=>{
+      const isOpen=navLinks.classList.toggle("show");
+      menuToggle.setAttribute("aria-expanded",String(isOpen));
+      menuToggle.textContent=isOpen?"×":"☰";
+    });
+    navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+      navLinks.classList.remove("show");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰";
+    }));
+
+    // Tarikh minimum ialah hari ini.
+    const today=new Date();const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().split("T")[0];
+    document.querySelectorAll('input[type="date"]').forEach(input=>input.min=localToday);
+    document.getElementById("year").textContent=new Date().getFullYear();
+
+    // Pautan sosial dibaca daripada konfigurasi.
+    document.querySelectorAll(".social-row a").forEach(a=>{
+      const key=a.textContent.toLowerCase();a.href=CONFIG.social[key]||"#";
+      if(a.href==="#"||a.href.endsWith("#"))a.addEventListener("click",e=>{e.preventDefault();alert("Sila masukkan pautan "+a.textContent+" rasmi dalam bahagian CONFIG di dalam kod.");});
+    });
+
+    // Popup borang pakej.
+    const modal=document.getElementById("bookingModal");
+    const modalPackage=document.getElementById("modalPackage");
+    function openBookingModal(packageName){
+      modalPackage.value=packageName;modal.classList.add("open");document.body.classList.add("modal-open");
+      setTimeout(()=>document.getElementById("modalName").focus(),100);
+    }
+    function closeBookingModal(){modal.classList.remove("open");document.body.classList.remove("modal-open");}
+    document.getElementById("modalClose").addEventListener("click",closeBookingModal);
+    modal.addEventListener("click",e=>{if(e.target===modal)closeBookingModal();});
+    document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeBookingModal();});
+    document.querySelectorAll(".choose-package").forEach(btn=>btn.addEventListener("click",()=>openBookingModal(btn.dataset.package)));
+
+    function sendToWhatsApp(form,source){
+      if(!form.reportValidity())return;
+      const data=new FormData(form);
+      const value=name=>(data.get(name)||"—").toString().trim();
+      const lines=[
+        "Assalamualaikum HUMAIRA MUSLIMAH SALON & SPA, saya ingin membuat permintaan tempahan.",
+        "",
+        "Nama: "+value("name"),
+        "No. Telefon: "+value("phone"),
+        "Cawangan: "+value("branch"),
+        "Tarikh: "+value("date"),
+        "Masa: "+value("time"),
+        source==="modal"?"Pakej dipilih: "+value("package"):"Rawatan / Pakej: "+value("service"),
+        source==="main"?"Rawatan khusus: "+value("detail"):"",
+        "Catatan: "+value("notes"),
+        "",
+        "Mohon pihak salon semak kekosongan slot dan sahkan tempahan saya. Terima kasih."
+      ].filter(Boolean);
+      const url="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(lines.join("\n"));
+      window.open(url,"_blank","noopener");
+    }
+    document.getElementById("mainBookingForm").addEventListener("submit",e=>{e.preventDefault();sendToWhatsApp(e.currentTarget,"main");});
+    document.getElementById("modalBookingForm").addEventListener("submit",e=>{e.preventDefault();sendToWhatsApp(e.currentTarget,"modal");closeBookingModal();});
+  </script>
+
+  <script>
+    function pilihPromosi() {
+      // Masukkan nama promosi terus ke dalam modal tempahan yang sama seperti pakej lain
+      const namaPromosi = "Promosi Bulanan"; 
+      
+      // Panggil fungsi pembuka modal borang yang sudah sedia ada dalam skrip anda
+      if (typeof openBookingModal === 'function') {
+        openBookingModal(namaPromosi);
+      } else {
+        // Fallback jika modal tidak dijumpai, baru skrol ke borang bawah
+        const tempahanSection = document.getElementById('tempahan');
+        if (tempahanSection) {
+          tempahanSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  </script>
+
+  <script>
+    // Fungsi untuk buka paparan poster besar
+    function bukaPosterBesar() {
+      const modal = document.getElementById('imageModal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Halang skrol belakang
+      }
+    }
+
+    // Fungsi untuk tutup paparan poster besar
+    function tutupPosterBesar() {
+      const modal = document.getElementById('imageModal');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+</body>
+</html>
