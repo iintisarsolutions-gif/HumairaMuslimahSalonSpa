@@ -25,7 +25,7 @@
   <meta property="og:url" content="https://iintisarsolutions-gif.github.io/HumairaMuslimahSalonSpa/">
   <meta property="og:title" content="HUMAIRA MUSLIMAH SALON & SPA | Alami Rahsia Keanggunan">
   <meta property="og:description" content="Manjakan diri anda dengan rawatan rambut, wajah dan badan eksklusif khusus untuk wanita dan muslimah di Ipoh. Tempah slot anda sekarang!">
-  <meta property="og:image" content="https://iintisarsolutions-gif.github.io/HumairaMuslimahSalonSpa/Og.png">
+  <meta property="og:image" content="https://iintisarsolutions-gif.github.io/HumairaMuslimahSalonSpa/g.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -234,22 +234,214 @@
     .category-card h3{font-family:"Playfair Display",serif;font-size:1.35rem;margin-bottom:7px}
     .category-card p{color:var(--muted);font-size:.88rem;margin:0}
     
-    .package-toolbar{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:30px}
-    .filter-btn{border:1px solid var(--line);background:#fff;color:var(--muted);padding:10px 17px;border-radius:999px;font-weight:800;font-size:.83rem}
-    .filter-btn.active,.filter-btn:hover{background:var(--pink-600);border-color:var(--pink-600);color:#fff}
-    .package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
-    .package-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 25px rgba(120,35,72,.045);transition:.25s}
-    .package-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-    .package-card.featured{border:2px solid var(--pink-300);background:linear-gradient(155deg,#fff,#FFF3F7)}
-    .package-tag{position:absolute;right:17px;top:17px;background:var(--pink-100);color:var(--pink-700);font-size:.68rem;font-weight:900;padding:6px 10px;border-radius:99px}
-    .package-card h3{font-family:"Playfair Display",serif;font-size:1.55rem;margin:0 0 5px}
-    .package-time{color:var(--muted);font-size:.82rem}
-    .package-price{font-size:2rem;font-weight:900;color:var(--pink-700);margin:15px 0 4px;letter-spacing:-.04em}
-    .package-price small{font-size:.75rem;color:var(--muted);font-weight:600;letter-spacing:0}
-    .package-card ul{padding-left:19px;color:#5f4b53;font-size:.9rem;margin:12px 0 24px;flex:1}
-    .package-card li{padding:3px 0}
-    .package-card .btn{width:100%;font-size:.88rem}
-    .mini-note{text-align:center;color:var(--muted);font-size:.85rem;margin-top:24px}
+    .package-toolbar {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .83rem;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--pink-600);
+      border-color: var(--pink-600);
+      color: #fff;
+    }
+
+    /* Diubah daripada grid 3-kolum kepada susunan senarai menegak bergaya tunggal */
+    .package-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Struktur luar bagi setiap baris akordion */
+    .accordion-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(120,35,72,.02);
+      transition: .25s;
+    }
+
+    .accordion-item:hover {
+      box-shadow: 0 6px 20px rgba(120,35,72,.06);
+    }
+
+    /* Gaya khas jika pakej tersebut diletakkan di bawah kategori 'istimewa' */
+    .accordion-item.featured {
+      border: 2px solid var(--pink-300);
+      background: linear-gradient(155deg, #fff, #FFF3F7);
+    }
+
+    /* Butang barisan utama akordion yang boleh diklik */
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    /* Susunan bahagian nama pakej dan masa di sebelah kiri */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .package-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #222;
+    }
+
+    .package-time {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    /* Tag mini "Pilihan Istimewa" di dalam barisan header */
+    .package-tag-mini {
+      background: var(--pink-100);
+      color: var(--pink-700);
+      font-size: .65rem;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    /* Susunan harga dan ikon anak panah di sebelah kanan */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .package-price {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--pink-700);
+      letter-spacing: -.04em;
+    }
+
+    .package-price small {
+      font-size: .75rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    /* Ikon anak panah petunjuk dropdown */
+    .icon-arrow {
+      color: var(--pink-600);
+      font-size: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    /* Kotak kandungan rahsia (asalnya berketinggian 0) */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+      background: #fff;
+    }
+
+    /* Ruang dalaman bagi kandungan selepas akordion dibuka */
+    .content-inner {
+      padding: 0 24px 24px;
+      border-top: 1px dashed var(--line);
+      padding-top: 20px;
+    }
+
+    .content-inner ul {
+      padding-left: 5px;
+      color: #5f4b53;
+      font-size: .95rem;
+      margin: 0 0 20px 0;
+      list-style: none;
+    }
+
+    /* 1. Titik merah jambu untuk semua senarai rawatan */
+    .content-inner li {
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(120,35,72,.05);
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .content-inner li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      background-color: var(--pink-600); 
+      border-radius: 50%;
+    }
+
+    /* 2. KHUSUS UNTUK BARIS ARAHAN (Pakej Mewangi & Purnama Sahaja) */
+    .content-inner li.pakej-instruction::before {
+      content: none; /* Membuang titik merah jambu secara khusus pada baris arahan */
+    }
+
+    .content-inner li.pakej-instruction {
+      padding-left: 0; /* Rapatkan semula tulisan ke kiri */
+      font-weight: 700; /* Menebalkan tulisan arahan supaya jelas dibaca */
+      color: var(--pink-700); /* Menggunakan warna merah jambu pekat salon anda */
+      border-bottom: 1px solid var(--line); /* Garisan pembagi yang kemas */
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    .content-inner li.pakej-bonus::before {
+      content: none; 
+    }
+
+    .content-inner li.pakej-bonus {
+      padding-left: 0;
+      font-weight: 700;
+      color: var(--pink-700); 
+      margin-top: 8px;
+      border-bottom: none; 
+    }
+
+    /* Menyelaraskan butang tempahan asal (.btn) anda */
+    .content-inner .btn {
+      width: 100%;
+      font-size: .88rem;
+      cursor: pointer;
+    }
+
+    .mini-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 24px;
+    }
+
     
     .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 8px 28px rgba(120,35,72,.04)}
     table{width:100%;border-collapse:collapse;min-width:560px}
@@ -807,7 +999,6 @@
           <button class="filter-btn active" data-filter="all">Semua Pakej</button><button class="filter-btn" data-filter="utama">Pakej Utama</button><button class="filter-btn" data-filter="istimewa">Pakej Istimewa</button><button class="filter-btn" data-filter="mini">Pakej Mini</button>
         </div>
         <div class="package-grid" id="packageGrid"></div>
-        <p class="mini-note">Harga yang ditanda “++” tertakluk kepada konsultasi dan keperluan rambut/rawatan. Sila sahkan harga akhir dengan pihak salon sebelum rawatan.</p>
       </div>
     </section>
 
@@ -817,15 +1008,7 @@
         <div class="treatment-block"><h3>02. Rawatan Muka</h3><div class="table-wrap"><table><thead><tr><th>Jenis Rawatan</th><th>Ahli</th><th>Bukan Ahli</th></tr></thead><tbody id="faceRows"></tbody></table></div></div>
         <div class="treatment-block"><h3>03. Rawatan Badan</h3><div class="table-wrap"><table><thead><tr><th>Jenis Rawatan</th><th>Ahli</th><th>Bukan Ahli</th></tr></thead><tbody id="bodyRows"></tbody></table></div></div>
         <div class="treatment-block"><h3>04. Mandian (Tab Jakuzi)</h3><div class="table-wrap"><table><thead><tr><th>Jenis Mandian</th><th>Ahli</th><th>Bukan Ahli</th></tr></thead><tbody id="bathRows"></tbody></table></div></div>
-      </div>
-    </section>
-
-    <section class="soft-section">
-      <div class="container"><div class="section-head"><span class="eyebrow">Pilihan fleksibel</span><h2>Pakej Pilih & Gabung</h2><p class="section-intro">Gabungkan rawatan pilihan mengikut pakej yang ditawarkan.</p></div>
-        <div class="special-grid">
-          <article class="special-panel pink"><span class="eyebrow">RM99 · 2 jam</span><h3>Pakej 3 Mewangi</h3><p>Pilih 3 rawatan daripada senarai berikut:</p><ol class="choice-list"><li>Rendaman Kaki Detox</li><li>Resdung + Masker</li><li>Sauna / Tangas</li><li>Facial Refreshing</li><li>Urut Kaki</li><li>Manicure</li><li>Hair Wash + Shoulder Massage</li></ol><button class="btn btn-primary choose-package" data-package="Pakej 3 Mewangi — RM99">Pilih Pakej Ini →</button></article>
-          <article class="special-panel"><span class="eyebrow">RM189 · 3 jam</span><h3>Pakej 3 Purnama</h3><p>Pilih 3 rawatan daripada senarai berikut:</p><ol class="choice-list"><li>Facial Vita C + Whitening</li><li>Facial Collagen</li><li>Facial Detox (Acne)</li><li>Fullbody Massage</li><li>Body Bleaching</li><li>Body Scrub</li><li>Hair Treatment</li><li>Mandian Seri Purnama</li></ol><p><strong>Bonus:</strong> Percuma rendaman kaki.</p><button class="btn btn-primary choose-package" data-package="Pakej 3 Purnama — RM189">Pilih Pakej Ini →</button></article>
-        </div>
+        <p class="mini-note">Harga yang ditanda “++” tertakluk kepada konsultasi dan keperluan rambut/rawatan. Harga akhir akan disahkan oleh pihak salon sebelum rawatan.</p>
       </div>
     </section>
 
@@ -1195,6 +1378,8 @@
       {name:"Pakej Ratu",price:"RM199",time:"3½ jam",group:"istimewa",items:["Body Scrub","Mandian Susu","Fullbody Massage","Facial Collagen / Vitamin C"]},
       {name:"Pakej Pengantin",price:"RM199",time:"2½ jam",group:"istimewa",items:["Sauna","Body Scrub","Body Mask","Mandian Seri Purnama","Hair Wash"]},
       {name:"Pakej Mempelai",price:"RM279",time:"5 jam",group:"istimewa",items:["Sauna / Tangas","Body Scrub","Body Bleaching","Mandian Seri Purnama","Seri Purnama Facial","Hair Treatment"]},
+      {name:"Pakej 3 Mewangi",price:"RM99",time:"2 jam",group:"istimewa",items:["Pilih 3 rawatan :","Rendaman Kaki Detox","Resdung + Masker","Sauna / Tangas","Facial Refreshing","Urut Kaki","Manicure","Hair Wash + Shoulder Massage"]},
+      {name:"Pakej 3 Purnama",price:"RM189",time:"3 jam",group:"istimewa",items:["Pilih 3 rawatan :","Facial Vita C + Whitening","Facial Collagen","Facial Detox (Acne)","Fullbody Massage","Body Bleaching","Body Scrub","Hair Treatment","Mandian Seri Purnama","BONUS: Percuma rendaman kaki"]},
       {name:"Pakej A",price:"RM50–70",time:"45 minit",group:"mini",items:["Hair Cut","Hair Wash + Tonic","Shoulder Massage"]},
       {name:"Pakej B",price:"RM99",time:"1 jam 15 minit",group:"mini",items:["Hair Cut","Hair Wash","Shoulder Massage","Hair Soft Treatment"]},
       {name:"Pakej C",price:"RM59",time:"1 jam 30 minit",group:"mini",items:["Facial Refreshing","Hair Wash + Tonic","Shoulder Massage"]},
@@ -1226,22 +1411,82 @@
       ]
     };
 
+    // Fungsi dikemas kini kepada struktur Akordion dinamik
     function renderPackages(filter="all"){
       const grid=document.getElementById("packageGrid");
       const shown=packages.filter(p=>filter==="all"||p.group===filter);
-      grid.innerHTML=shown.map((p,i)=>`
-        <article class="package-card ${p.group==="istimewa"?"featured":""}">
-          ${p.group==="istimewa"?'<span class="package-tag">Pilihan Istimewa</span>':""}
-          <h3>${p.name}</h3><div class="package-time">◷ ${p.time}</div>
-          <div class="package-price">${p.price} <small>/ seorang</small></div>
-          <ul>${p.items.map(item=>`<li>${item}</li>`).join("")}</ul>
-          <button class="btn btn-primary choose-package" type="button" data-package="${p.name} — ${p.price}">Pilih Pakej Ini →</button>
-        </article>`).join("");
+      
+      grid.innerHTML=shown.map((p,i)=>{
+        // Logik semak: Asingkan kelas untuk teks "Pilih" (arahan) dan "BONUS" (hadiah percuma)
+        const senaraiItems = p.items.map(item => {
+          const adakahArahan = item.startsWith("Pilih");
+          const adakahBonus = item.includes("BONUS:");
+          
+          let classTambahan = "";
+          if (adakahArahan) {
+            classTambahan = "pakej-instruction";
+          } else if (adakahBonus) {
+            classTambahan = "pakej-bonus";
+          }
+
+          return `<li class="${classTambahan}">${item}</li>`;
+        }).join("");
+
+        return `
+          <div class="accordion-item ${p.group==="istimewa"?"featured":""}">
+            <button class="accordion-header" type="button" onclick="toggleAccordion(${i})">
+              <div class="header-left">
+                <span class="package-name">🌸 ${p.name}</span>
+                <span class="package-time">⏱️ ${p.time}</span>
+                ${p.group==="istimewa"?'<span class="package-tag-mini">Pilihan Istimewa</span>':""}
+              </div>
+              <div class="header-right">
+                <span class="package-price">${p.price} <small>/ seorang</small></span>
+                <span class="icon-arrow" id="arrow-${i}">▼</span>
+              </div>
+            </button>
+            <div class="accordion-content" id="content-${i}">
+              <div class="content-inner">
+                <ul>${senaraiItems}</ul>
+                <button class="btn btn-primary choose-package" type="button" data-package="${p.name} — ${p.price}">Pilih Pakej Ini →</button>
+              </div>
+            </div>
+          </div>`;
+      }).join("");
+
+      // Kekalkan fungsi trigger modal tempahan asal anda
       grid.querySelectorAll(".choose-package").forEach(btn=>btn.addEventListener("click",()=>openBookingModal(btn.dataset.package)));
     }
+
+    // Logik interaktif buka tutup dengan animasi lancar
+    function toggleAccordion(index) {
+      const currentContent = document.getElementById(`content-${index}`);
+      const currentArrow = document.getElementById(`arrow-${index}`);
+      
+      // Tutup akordion lain yang terbuka dalam grid semasa
+      document.querySelectorAll('.accordion-content').forEach((content, idx) => {
+        if (idx !== index) {
+          content.style.maxHeight = null;
+          const arrow = document.getElementById(`arrow-${idx}`);
+          if(arrow) arrow.style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Logik buka/tutup item terpilih
+      if (currentContent.style.maxHeight) {
+        currentContent.style.maxHeight = null;
+        currentArrow.style.transform = 'rotate(0deg)';
+      } else {
+        currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+        currentArrow.style.transform = 'rotate(180deg)';
+      }
+    }
+
     function renderRows(id,rows,columns){
       document.getElementById(id).innerHTML=rows.map(row=>`<tr>${row.map((cell,i)=>`<td class="${i>0?'price':''}">${cell}</td>`).join("")}</tr>`).join("");
     }
+
+    // Jalankan fungsi asal
     renderPackages();
     renderRows("hairRows",treatments.hair,2);
     renderRows("faceRows",treatments.face,3);
@@ -1251,7 +1496,8 @@
     document.querySelectorAll(".filter-btn").forEach(btn=>{
       btn.addEventListener("click",()=>{
         document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-        btn.classList.add("active");renderPackages(btn.dataset.filter);
+        btn.classList.add("active");
+        renderPackages(btn.dataset.filter);
       });
     });
 
