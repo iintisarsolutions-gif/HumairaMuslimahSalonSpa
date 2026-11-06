@@ -24,7 +24,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://iintisarsolutions-gif.github.io/HumairaMuslimahSalonSpa/">
   <meta property="og:title" content="HUMAIRA MUSLIMAH SALON & SPA | Alami Rahsia Keanggunan">
-  <meta property="og:description" content="Manjakan diri anda dengan rawatan rambut, wajah dan badan eksklusif khusus untuk wanita dan muslimah di Ipoh. Tempah slot anda sekarang!">
+  <meta property="og:description" content="Tempah slot spa & salon muslimah anda di Ipoh dengan mudah di sini. Jom manjakan diri!">
   <meta property="og:image" content="https://iintisarsolutions-gif.github.io/HumairaMuslimahSalonSpa/Og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -760,6 +760,70 @@
     .topbar-marquee:hover .marquee-content {
       animation-play-state: paused;
     }
+
+    .promo-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(33, 21, 26, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeInPopup 0.3s ease;
+    }
+
+    .promo-popup-content {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 24px;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(120, 35, 72, 0.15);
+      border: 1px solid var(--line, #F1D6E0);
+      text-align: left;
+    }
+
+    .promo-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #FFF8FA;
+      border: 1px solid #F1D6E0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      transition: background 0.2s;
+    }
+
+    .promo-close-btn:hover {
+      background: #FBE5EC;
+    }
+
+    @keyframes fadeInPopup {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes softPulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(199, 15, 94, 0.4); }
+      70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(199, 15, 94, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(199, 15, 94, 0); }
+    }
+
+    .promo-pulse-btn {
+      animation: softPulse 2s infinite ease-in-out;
+    }
 </style>
 </head>
 <body>
@@ -1353,6 +1417,26 @@
     </div>
   </div>
 
+  <!-- Pop-Up Iklan Promo Bulanan (Kotak Stabil + Butang Berdenyut Lembut) -->
+  <div id="promoPopup" class="promo-popup-overlay" style="display: none;">
+    <div class="promo-popup-content" style="max-width: 360px; padding: 15px; text-align: center; border-radius: 20px;">
+      <button id="closePopup" class="promo-close-btn">&times;</button>
+      
+      <!-- Kandungan Iklan / Poster Promo -->
+      <div class="promo-body" style="width: 100%;">
+        <span class="eyebrow" style="color: var(--pink-700, #C70F5E); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px;">Eksklusif Bulan Ini</span>
+        
+        <!-- Container Poster -->
+        <div style="border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: transparent;">
+          <img src="Poster Promo.jpeg" alt="Promo Bulanan" style="width: 100%; height: auto; display: block; object-fit: cover;">
+        </div>
+
+        <!-- Butang Bertindak (CTA) dengan Kesan Pulse Lembut -->
+        <a href="#promo" id="claimPromoBtn" class="btn btn-primary promo-pulse-btn" style="display: block; text-align: center; text-decoration: none; padding: 12px; border-radius: 12px; background: var(--pink-700, #C70F5E); color: #fff; font-weight: 600; font-size: 0.95rem;">Pilih Promo & Tempah Sekarang ↗</a>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ==============================
     // KONFIGURASI MUDAH DIKEMASKINI
@@ -1598,6 +1682,41 @@
         document.body.style.overflow = '';
       }
     }
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("promoPopup");
+    const closeBtn = document.getElementById("closePopup");
+    const claimBtn = document.getElementById("claimPromoBtn");
+    
+    let hasShown = false; // Memastikan pop-up hanya keluar sekali dalam satu sesi
+
+    // Fungsi mengesan skrol
+    window.addEventListener("scroll", function() {
+      if (!hasShown && window.scrollY > 350) {
+        popup.style.display = "flex";
+        hasShown = true;
+      }
+    });
+
+    // Tutup bila klik butang X
+    closeBtn.addEventListener("click", function() {
+      popup.style.display = "none";
+    });
+
+    // Tutup bila klik butang "Pilih Promo" di dalam pop-up
+    claimBtn.addEventListener("click", function() {
+      popup.style.display = "none";
+    });
+
+    // Tutup bila klik di luar kotak putih pop-up
+    popup.addEventListener("click", function(e) {
+      if (e.target === popup) {
+        popup.style.display = "none";
+      }
+    });
+  });
   </script>
 </body>
 </html>
