@@ -1616,20 +1616,74 @@
       document.getElementById(id).innerHTML=rows.map(row=>`<tr>${row.map((cell,i)=>`<td class="${i>0?'price':''}">${cell}</td>`).join("")}</tr>`).join("");
     }
 
-    // Jalankan fungsi asal
-    renderPackages();
-    renderRows("hairRows",treatments.hair,2);
-    renderRows("faceRows",treatments.face,3);
-    renderRows("bodyRows",treatments.body,3);
-    renderRows("bathRows",treatments.bath,3);
+    // =======================================================
+    // JALANKAN FUNGSI ASAL SEBAIK SAHAJA HALAMAN SIAP DIMUATKAN
+    // =======================================================
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Memaparkan semua senarai pakej rawatan secara automatik
+      renderPackages("all");
+      
+      // 2. Jalankan fungsi asal untuk bina jadual rawatan
+      renderRows("hairRows", treatments.hair, 2);
+      renderRows("faceRows", treatments.face, 3);
+      renderRows("bodyRows", treatments.body, 3);
+      renderRows("bathRows", treatments.bath, 3);
 
-    document.querySelectorAll(".filter-btn").forEach(btn=>{
-      btn.addEventListener("click",()=>{
-        document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-        btn.classList.add("active");
-        renderPackages(btn.dataset.filter);
+      // 3. Set paparan awal untuk Galeri Gambar cawangan pertama yang aktif
+      const awalBtnGaleri = document.querySelector('.gallery-filters .filter-btn.active') || document.querySelector('.gallery-filters .filter-btn');
+      if (awalBtnGaleri) {
+        const kategoriAwal = awalBtnGaleri.getAttribute('data-filter');
+        tapisGambarGaleri(kategoriAwal);
+      }
+    });
+
+    // =======================================================
+    // PENGURUSAN KLIK BUTANG PENAPIS SECARA ADIL & TERASING
+    // =======================================================
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", function() {
+        // Cari kontainer terdekat (parent) bagi kelompok butang yang diklik sahaja
+        const kumpulanButang = this.parentElement;
+        
+        // Cuma tukar gaya aktif (warna pink) untuk butang dalam kelompok itu sahaja
+        kumpulanButang.querySelectorAll(".filter-btn").forEach(b => {
+          b.classList.remove("active");
+          b.style.background = "#fff";
+          b.style.color = "var(--ink)";
+          b.style.borderColor = "var(--line, #F1D6E0)";
+        });
+
+        // Aktifkan butang yang baru diklik
+        this.classList.add("active");
+        this.style.background = "var(--pink-700, #C70F5E)";
+        this.style.color = "#fff";
+        this.style.borderColor = "var(--pink-700, #C70F5E)";
+        
+        const nilaiPenapis = this.getAttribute('data-filter');
+
+        // SEMAK SECARA SPESIFIK: Adakah ini butang Galeri atau Pakej?
+        if (kumpulanButang.classList.contains("gallery-filters") || this.closest(".gallery-section")) {
+          // Jika ia butang galeri, hanya usik gambar galeri
+          tapisGambarGaleri(nilaiPenapis);
+        } else {
+          // Jika ia butang pakej, hanya usik data pakej
+          renderPackages(nilaiPenapis);
+        }
       });
     });
+
+    // FUNGSI KHAS UNTUK MENAPIS GAMBAR GALERI
+    function tapisGambarGaleri(kategoriDipilih) {
+      document.querySelectorAll(".gallery-item").forEach(item => {
+        const kategoriItem = item.getAttribute('data-category');
+        
+        if (kategoriDipilih === "all" || kategoriItem === kategoriDipilih) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
 
     // Menu mudah alih
     const menuToggle=document.getElementById("menuToggle");
@@ -1761,42 +1815,6 @@
       if (e.target === popup) {
         popup.style.display = "none";
       }
-    });
-  });
-  </script>
-
-  <!-- Skrip JavaScript untuk Tukar Paparan Mengikut Butang Dipilih -->
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const galleryItems = document.querySelectorAll(".gallery-item");
-
-    filterButtons.forEach(button => {
-      button.addEventListener("click", function() {
-        // Tukar gaya butang aktif
-        filterButtons.forEach(btn => {
-          btn.classList.remove("active");
-          btn.style.background = "#fff";
-          btn.style.color = "var(--ink)";
-          btn.style.borderColor = "var(--line, #F1D6E0)";
-        });
-
-        this.classList.add("active");
-        this.style.background = "var(--pink-700, #C70F5E)";
-        this.style.color = "#fff";
-        this.style.borderColor = "var(--pink-700, #C70F5E)";
-
-        const category = this.getAttribute("data-filter");
-
-        // Paparkan hanya item yang sepadan dengan kategori butang yang diklik
-        galleryItems.forEach(item => {
-          if (item.getAttribute("data-category") === category) {
-            item.style.display = "block";
-          } else {
-            item.style.display = "none";
-          }
-        });
-      });
     });
   });
   </script>
