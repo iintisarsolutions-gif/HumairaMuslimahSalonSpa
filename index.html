@@ -1475,6 +1475,14 @@
     </div>
   </div>
 
+  <!-- Kontainer Lightbox untuk Membesarkan Gambar -->
+  <div id="galleryLightbox" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+    <!-- Butang Pangkah (Close) -->
+    <button id="closeLightbox" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; font-weight: 300; line-height: 1;">&times;</button>
+    <!-- Paparan Gambar Besar -->
+    <img id="lightboxImg" src="" alt="Paparan Besar" style="max-width: 90%; max-height: 85%; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); object-fit: contain; transform: scale(0.95); transition: transform 0.3s ease;">
+  </div>
+
   <script>
     // ==============================
     // KONFIGURASI MUDAH DIKEMASKINI
@@ -1817,6 +1825,60 @@
       img.onerror = function() {
         setComingSoon(img);
       };
+    });
+  </script>
+
+  <script>
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeLightbox = document.getElementById('closeLightbox');
+
+    // 1. Kesan klik pada semua gambar di dalam galeri
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      // Tambah gaya pointer tikus supaya pengguna tahu gambar boleh diklik
+      img.style.cursor = 'pointer';
+
+      img.addEventListener('click', function() {
+        // Elakkan buka jika gambar berstatus "nil.jpg" atau "Akan Datang"
+        if (this.getAttribute('src') === 'nil.jpg' || this.src.includes('nil')) return;
+
+        // Set sumber gambar besar berdasarkan gambar yang diklik
+        lightboxImg.src = this.src;
+        
+        // Paparkan lightbox dengan animasi lembut
+        lightbox.style.display = 'flex';
+        setTimeout(() => {
+          lightbox.style.opacity = '1';
+          lightboxImg.style.transform = 'scale(1)';
+        }, 10);
+      });
+    });
+
+    // 2. Fungsi untuk tutup lightbox
+    function hideLightbox() {
+      lightbox.style.opacity = '0';
+      lightboxImg.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = ''; // Bersihkan src
+      }, 300);
+    }
+
+    // Tutup apabila butang pangkah diklik
+    closeLightbox.addEventListener('click', hideLightbox);
+
+    // Tutup apabila kawasan hitam (luar gambar) diklik
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        hideLightbox();
+      }
+    });
+
+    // Tutup apabila butang 'Escape' di keyboard ditekan (untuk pengguna PC)
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+        hideLightbox();
+      }
     });
   </script>
 </body>
