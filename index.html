@@ -1304,18 +1304,29 @@
               <label for="mainService">Rawatan / Pakej *</label>
               <select id="mainService" name="service" required>
                 <option value="">Pilih rawatan atau pakej</option>
-                <option>Rawatan Rambut</option>
-                <option>Rawatan Muka</option>
-                <option>Rawatan Badan</option>
-                <option>Mandian Jakuzi</option>
-                <option>Pakej Utama</option>
-                <option>Pakej Istimewa</option>
-                <option>Pakej Mini</option>
-                <option>Pakej 3 Mewangi</option>
-                <option>Pakej 3 Purnama</option>
-                <option>Lain-lain / Pertanyaan</option>
+                <optgroup label="Jenis Rawatan">
+                  <option value="hair">Rawatan Rambut</option>
+                  <option value="face">Rawatan Muka</option>
+                  <option value="body">Rawatan Badan</option>
+                  <option value="bath">Mandian Jakuzi</option>
+                </optgroup>
+                <optgroup label="Jenis Pakej">
+                  <option value="utama">Pakej Utama</option>
+                  <option value="istimewa">Pakej Istimewa</option>
+                  <option value="mini">Pakej Mini</option>
+                </optgroup>
+                <option value="others">Lain-lain / Pertanyaan</option>
               </select>
             </div>
+            
+            <!-- Dropdown Sub-Service (Muncul secara dinamik) -->
+            <div class="field" id="subServiceField" style="display: none;">
+              <label for="subService" style="color: var(--pink-700, #C70F5E); font-weight: 600;">Jenis Rawatan *</label>
+              <select id="subService" name="sub_service">
+                <!-- Diisi oleh JavaScript -->
+              </select>
+            </div>
+
             <div class="field">
               <label for="mainDate">Tarikh pilihan *</label>
               <input type="date" id="mainDate" name="date" required>
@@ -1326,12 +1337,8 @@
               <small>Selepas 6.45 petang melalui temujanji sahaja.</small>
             </div>
             <div class="field full">
-              <label for="mainDetail">Nama pakej / rawatan khusus (jika tahu)</label>
-              <input id="mainDetail" name="detail" placeholder="Contoh: Pakej Bonda / Hair Keratin Treatment">
-            </div>
-            <div class="field full">
               <label for="mainNotes">Catatan tambahan</label>
-              <textarea id="mainNotes" name="notes" placeholder="Nyatakan pilihan rawatan, pertanyaan atau permintaan anda..."></textarea>
+              <textarea id="mainNotes" name="notes" placeholder="Nyatakan sebarang pertanyaan atau permintaan khas..."></textarea>
             </div>
           </div>
 
@@ -1465,266 +1472,362 @@
   </div>
 
   <script>
-    // ==============================
-    // KONFIGURASI MUDAH DIKEMASKINI
-    // ==============================
-    const CONFIG = {
-      whatsapp: "60105240334", // Nombor utama dalam format antarabangsa tanpa tanda +
-      social: {
-        facebook: "https://www.facebook.com/profile.php?id=100054434172585",  // Gantikan dengan URL Facebook rasmi
-        instagram: "#", // Gantikan dengan URL Instagram rasmi
-        tiktok: "#"     // Gantikan dengan URL TikTok rasmi
-      }
-    };
+      // ==============================
+      // KONFIGURASI MUDAH DIKEMASKINI
+      // ==============================
+      const CONFIG = {
+        whatsapp: "60105240334", // Nombor utama dalam format antarabangsa tanpa tanda +
+        social: {
+          facebook: "https://www.facebook.com/profile.php?id=100054434172585",  // Gantikan dengan URL Facebook rasmi
+          instagram: "#", // Gantikan dengan URL Instagram rasmi
+          tiktok: "#"     // Gantikan dengan URL TikTok rasmi
+        }
+      };
 
-    // Data pakej dipaparkan secara automatik dalam kad.
-    const packages = [
-      {name:"Pakej Bonda",price:"RM149",time:"2½ jam",group:"utama",items:["Sauna / Tangas","Fullbody Massage & Peranakan","Hair Wash"]},
-      {name:"Pakej Nilam",price:"RM149",time:"2 jam",group:"utama",items:["Rendaman Kaki","Body Scrub","Body Mask","Mandian Susu","Hair Wash"]},
-      {name:"Pakej Mekar",price:"RM149",time:"2½ jam",group:"utama",items:["Facial Collagen / Vitamin C","Hair Cut","Hair Wash","Shoulder Massage","Hair Treatment"]},
-      {name:"Pakej Baiduri",price:"RM159",time:"3 jam",group:"utama",items:["Rendaman Kaki Detox","Fullbody Massage","Pearl Glowing Facial","Hair Wash"]},
-      {name:"Pakej Puteri",price:"RM189",time:"3 jam",group:"utama",items:["Sauna","Body Scrub","Fullbody Massage","Mandian Seri Purnama"]},
-      {name:"Pakej Suri",price:"RM159",time:"3 jam",group:"utama",items:["Sauna","Fullbody Massage + Peranakan","Hair Wash","Facial Refreshing"]},
-      {name:"Pakej Segar",price:"RM159",time:"3 jam",group:"utama",items:["Rendaman Kaki","Body Scrub","Full Body Massage","Hair Wash"]},
-      {name:"Pakej Ratu",price:"RM199",time:"3½ jam",group:"istimewa",items:["Body Scrub","Mandian Susu","Fullbody Massage","Facial Collagen / Vitamin C"]},
-      {name:"Pakej Pengantin",price:"RM199",time:"2½ jam",group:"istimewa",items:["Sauna","Body Scrub","Body Mask","Mandian Seri Purnama","Hair Wash"]},
-      {name:"Pakej Mempelai",price:"RM279",time:"5 jam",group:"istimewa",items:["Sauna / Tangas","Body Scrub","Body Bleaching","Mandian Seri Purnama","Seri Purnama Facial","Hair Treatment"]},
-      {name:"Pakej 3 Mewangi",price:"RM99",time:"2 jam",group:"istimewa",items:["Pilih 3 rawatan :","Rendaman Kaki Detox","Resdung + Masker","Sauna / Tangas","Facial Refreshing","Urut Kaki","Manicure","Hair Wash + Shoulder Massage"]},
-      {name:"Pakej 3 Purnama",price:"RM189",time:"3 jam",group:"istimewa",items:["Pilih 3 rawatan :","Facial Vita C + Whitening","Facial Collagen","Facial Detox (Acne)","Fullbody Massage","Body Bleaching","Body Scrub","Hair Treatment","Mandian Seri Purnama","BONUS: Percuma rendaman kaki"]},
-      {name:"Pakej A",price:"RM50–70",time:"45 minit",group:"mini",items:["Hair Cut","Hair Wash + Tonic","Shoulder Massage"]},
-      {name:"Pakej B",price:"RM99",time:"1 jam 15 minit",group:"mini",items:["Hair Cut","Hair Wash","Shoulder Massage","Hair Soft Treatment"]},
-      {name:"Pakej C",price:"RM59",time:"1 jam 30 minit",group:"mini",items:["Facial Refreshing","Hair Wash + Tonic","Shoulder Massage"]},
-      {name:"Pakej D",price:"RM89",time:"1 jam 30 minit",group:"mini",items:["Asap Resdung","Facial Treatment","Hair Wash + Tonic"]},
-      {name:"Pakej Santai",price:"RM89",time:"1 jam 45 minit",group:"mini",items:["Facial Collagen / Vitamin C","Hair Wash + Tonic","Shoulder Massage"]},
-      {name:"Foot Spa",price:"RM69",time:"1 jam 15 minit",group:"mini",items:["Rendaman Kaki","Foot Scrub","Foot Mask","Foot Massage"]},
-      {name:"Kuku Spa",price:"RM75",time:"1 jam 15 minit",group:"mini",items:["Rendaman Kaki","Manicure","Pedicure"]}
-    ];
+      // Data pakej dipaparkan secara automatik dalam kad.
+      const packages = [
+        {name:"Pakej Bonda",price:"RM149",time:"2½ jam",group:"utama",items:["Sauna / Tangas","Fullbody Massage & Peranakan","Hair Wash"]},
+        {name:"Pakej Nilam",price:"RM149",time:"2 jam",group:"utama",items:["Rendaman Kaki","Body Scrub","Body Mask","Mandian Susu","Hair Wash"]},
+        {name:"Pakej Mekar",price:"RM149",time:"2½ jam",group:"utama",items:["Facial Collagen / Vitamin C","Hair Cut","Hair Wash","Shoulder Massage","Hair Treatment"]},
+        {name:"Pakej Baiduri",price:"RM159",time:"3 jam",group:"utama",items:["Rendaman Kaki Detox","Fullbody Massage","Pearl Glowing Facial","Hair Wash"]},
+        {name:"Pakej Puteri",price:"RM189",time:"3 jam",group:"utama",items:["Sauna","Body Scrub","Fullbody Massage","Mandian Seri Purnama"]},
+        {name:"Pakej Suri",price:"RM159",time:"3 jam",group:"utama",items:["Sauna","Fullbody Massage + Peranakan","Hair Wash","Facial Refreshing"]},
+        {name:"Pakej Segar",price:"RM159",time:"3 jam",group:"utama",items:["Rendaman Kaki","Body Scrub","Full Body Massage","Hair Wash"]},
+        {name:"Pakej Ratu",price:"RM199",time:"3½ jam",group:"istimewa",items:["Body Scrub","Mandian Susu","Fullbody Massage","Facial Collagen / Vitamin C"]},
+        {name:"Pakej Pengantin",price:"RM199",time:"2½ jam",group:"istimewa",items:["Sauna","Body Scrub","Body Mask","Mandian Seri Purnama","Hair Wash"]},
+        {name:"Pakej Mempelai",price:"RM279",time:"5 jam",group:"istimewa",items:["Sauna / Tangas","Body Scrub","Body Bleaching","Mandian Seri Purnama","Seri Purnama Facial","Hair Treatment"]},
+        {name:"Pakej 3 Mewangi",price:"RM99",time:"2 jam",group:"istimewa",items:["Pilih 3 rawatan :","Rendaman Kaki Detox","Resdung + Masker","Sauna / Tangas","Facial Refreshing","Urut Kaki","Manicure","Hair Wash + Shoulder Massage"]},
+        {name:"Pakej 3 Purnama",price:"RM189",time:"3 jam",group:"istimewa",items:["Pilih 3 rawatan :","Facial Vita C + Whitening","Facial Collagen","Facial Detox (Acne)","Fullbody Massage","Body Bleaching","Body Scrub","Hair Treatment","Mandian Seri Purnama","BONUS: Percuma rendaman kaki"]},
+        {name:"Pakej A",price:"RM50–70",time:"45 minit",group:"mini",items:["Hair Cut","Hair Wash + Tonic","Shoulder Massage"]},
+        {name:"Pakej B",price:"RM99",time:"1 jam 15 minit",group:"mini",items:["Hair Cut","Hair Wash","Shoulder Massage","Hair Soft Treatment"]},
+        {name:"Pakej C",price:"RM59",time:"1 jam 30 minit",group:"mini",items:["Facial Refreshing","Hair Wash + Tonic","Shoulder Massage"]},
+        {name:"Pakej D",price:"RM89",time:"1 jam 30 minit",group:"mini",items:["Asap Resdung","Facial Treatment","Hair Wash + Tonic"]},
+        {name:"Pakej Santai",price:"RM89",time:"1 jam 45 minit",group:"mini",items:["Facial Collagen / Vitamin C","Hair Wash + Tonic","Shoulder Massage"]},
+        {name:"Foot Spa",price:"RM69",time:"1 jam 15 minit",group:"mini",items:["Rendaman Kaki","Foot Scrub","Foot Mask","Foot Massage"]},
+        {name:"Kuku Spa",price:"RM75",time:"1 jam 15 minit",group:"mini",items:["Rendaman Kaki","Manicure","Pedicure"]}
+      ];
 
-    const treatments = {
-      hair:[
-        ["Normal Cut","RM20–30"],["Styling Cut","RM25++"],["Iron / Blow Styling","RM25++"],["Hair Wash Blow","RM20++"],
-        ["Hair Yogurt Treatment","RM80++"],["Hair Colling Treatment / Hair Fall / Dandruff","RM80++"],["Hair Keratin Treatment","RM120++"],
-        ["Inai / Perm / Colour / Rebonding / Highlight","RM80++"],["Eyelash Perming with Face Refreshing","RM65++"],["Eye Brow Threading","RM15"]
-      ],
-      face:[
-        ["Facial Refreshing","RM35","RM38"],["Facial Vitamin C","RM65","RM69"],["Facial Gold + Collagen","RM80","RM85"],
-        ["Facial Detox (Jerawat)","RM80","RM85"],["Sinus (Asap Resdung)","RM28","RM30"],["Facial Rawatan Resdung","RM75","RM80"],
-        ["Facial Seri Purnama","RM80","RM85"],["HUMILARA Signature Facial (LED Treatment)","RM95","RM100"]
-      ],
-      body:[
-        ["Sauna Herba","RM30","RM33"],["Sauna Infrared","RM35","RM38"],["Tangas","RM35","RM38"],["Foot Massage","RM39","RM45"],
-        ["Body Scrub (Free Sauna)","RM85","RM89"],["Body Mask","RM55","RM60"],["Body Bleaching","RM55","RM60"],
-        ["Hand / Feet Bleaching","RM40","RM45"],["Rendaman Kaki Herba","RM35","RM38"],["Hand / Feet Waxing","RM40","RM45"],
-        ["Manicure","RM37","RM40"],["Pedicure","RM45","RM48"],["Full Body Massage","RM99","RM99"],["Full Body Massage + Peranakan","RM119","RM119"]
-      ],
-      bath:[
-        ["Mandian Susu","RM65","RM70"],["Mandian Rempah","RM65","RM70"],["Mandian Seri Purnama","RM75","RM80"],["Mandian Ais","RM65","RM70"]
-      ]
-    };
+      const treatments = {
+        hair:[
+          ["Normal Cut","RM20–30"],["Styling Cut","RM25++"],["Iron / Blow Styling","RM25++"],["Hair Wash Blow","RM20++"],
+          ["Hair Yogurt Treatment","RM80++"],["Hair Colling Treatment / Hair Fall / Dandruff","RM80++"],["Hair Keratin Treatment","RM120++"],
+          ["Inai / Perm / Colour / Rebonding / Highlight","RM80++"],["Eyelash Perming with Face Refreshing","RM65++"],["Eye Brow Threading","RM15"]
+        ],
+        face:[
+          ["Facial Refreshing","RM35","RM38"],["Facial Vitamin C","RM65","RM69"],["Facial Gold + Collagen","RM80","RM85"],
+          ["Facial Detox (Jerawat)","RM80","RM85"],["Sinus (Asap Resdung)","RM28","RM30"],["Facial Rawatan Resdung","RM75","RM80"],
+          ["Facial Seri Purnama","RM80","RM85"],["HUMILARA Signature Facial (LED Treatment)","RM95","RM100"]
+        ],
+        body:[
+          ["Sauna Herba","RM30","RM33"],["Sauna Infrared","RM35","RM38"],["Tangas","RM35","RM38"],["Foot Massage","RM39","RM45"],
+          ["Body Scrub (Free Sauna)","RM85","RM89"],["Body Mask","RM55","RM60"],["Body Bleaching","RM55","RM60"],
+          ["Hand / Feet Bleaching","RM40","RM45"],["Rendaman Kaki Herba","RM35","RM38"],["Hand / Feet Waxing","RM40","RM45"],
+          ["Manicure","RM37","RM40"],["Pedicure","RM45","RM48"],["Full Body Massage","RM99","RM99"],["Full Body Massage + Peranakan","RM119","RM119"]
+        ],
+        bath:[
+          ["Mandian Susu","RM65","RM70"],["Mandian Rempah","RM65","RM70"],["Mandian Seri Purnama","RM75","RM80"],["Mandian Ais","RM65","RM70"]
+        ]
+      };
 
-    // Fungsi dikemas kini kepada struktur Akordion dinamik
-    function renderPackages(filter="all"){
-      const grid=document.getElementById("packageGrid");
-      const shown=packages.filter(p=>filter==="all"||p.group===filter);
-      
-      grid.innerHTML=shown.map((p,i)=>{
-        // Logik semak: Asingkan kelas untuk teks "Pilih" (arahan) dan "BONUS" (hadiah percuma)
-        const senaraiItems = p.items.map(item => {
-          const adakahArahan = item.startsWith("Pilih");
-          const adakahBonus = item.includes("BONUS:");
-          
-          let classTambahan = "";
-          if (adakahArahan) {
-            classTambahan = "pakej-instruction";
-          } else if (adakahBonus) {
-            classTambahan = "pakej-bonus";
-          }
+      // Fungsi dikemas kini kepada struktur Akordion dinamik
+      function renderPackages(filter="all"){
+        const grid=document.getElementById("packageGrid");
+        const shown=packages.filter(p=>filter==="all"||p.group===filter);
+        
+        grid.innerHTML=shown.map((p,i)=>{
+          const senaraiItems = p.items.map(item => {
+            const adakahArahan = item.startsWith("Pilih");
+            const adakahBonus = item.includes("BONUS:");
+            
+            let classTambahan = "";
+            if (adakahArahan) {
+              classTambahan = "pakej-instruction";
+            } else if (adakahBonus) {
+              classTambahan = "pakej-bonus";
+            }
 
-          return `<li class="${classTambahan}">${item}</li>`;
+            return `<li class="${classTambahan}">${item}</li>`;
+          }).join("");
+
+          return `
+            <div class="accordion-item ${p.group==="istimewa"?"featured":""}">
+              <button class="accordion-header" type="button" onclick="toggleAccordion(${i})">
+                <div class="header-left">
+                  <span class="package-name">🌸 ${p.name}</span>
+                  <span class="package-time">⏱️ ${p.time}</span>
+                  ${p.group==="istimewa"?'<span class="package-tag-mini">Pilihan Istimewa</span>':""}
+                </div>
+                <div class="header-right">
+                  <span class="package-price">${p.price} <small>/ seorang</small></span>
+                  <span class="icon-arrow" id="arrow-${i}">▼</span>
+                </div>
+              </button>
+              <div class="accordion-content" id="content-${i}">
+                <div class="content-inner">
+                  <ul>${senaraiItems}</ul>
+                  <button class="btn btn-primary choose-package" type="button" data-package="${p.name} — ${p.price}">Pilih Pakej Ini →</button>
+                </div>
+              </div>
+            </div>`;
         }).join("");
 
-        return `
-          <div class="accordion-item ${p.group==="istimewa"?"featured":""}">
-            <button class="accordion-header" type="button" onclick="toggleAccordion(${i})">
-              <div class="header-left">
-                <span class="package-name">🌸 ${p.name}</span>
-                <span class="package-time">⏱️ ${p.time}</span>
-                ${p.group==="istimewa"?'<span class="package-tag-mini">Pilihan Istimewa</span>':""}
-              </div>
-              <div class="header-right">
-                <span class="package-price">${p.price} <small>/ seorang</small></span>
-                <span class="icon-arrow" id="arrow-${i}">▼</span>
-              </div>
-            </button>
-            <div class="accordion-content" id="content-${i}">
-              <div class="content-inner">
-                <ul>${senaraiItems}</ul>
-                <button class="btn btn-primary choose-package" type="button" data-package="${p.name} — ${p.price}">Pilih Pakej Ini →</button>
-              </div>
-            </div>
-          </div>`;
-      }).join("");
-
-      // Kekalkan fungsi trigger modal tempahan asal anda
-      grid.querySelectorAll(".choose-package").forEach(btn=>btn.addEventListener("click",()=>openBookingModal(btn.dataset.package)));
-    }
-
-    // Logik interaktif buka tutup dengan animasi lancar
-    function toggleAccordion(index) {
-      const currentContent = document.getElementById(`content-${index}`);
-      const currentArrow = document.getElementById(`arrow-${index}`);
-      
-      // Tutup akordion lain yang terbuka dalam grid semasa
-      document.querySelectorAll('.accordion-content').forEach((content, idx) => {
-        if (idx !== index) {
-          content.style.maxHeight = null;
-          const arrow = document.getElementById(`arrow-${idx}`);
-          if(arrow) arrow.style.transform = 'rotate(0deg)';
-        }
-      });
-
-      // Logik buka/tutup item terpilih
-      if (currentContent.style.maxHeight) {
-        currentContent.style.maxHeight = null;
-        currentArrow.style.transform = 'rotate(0deg)';
-      } else {
-        currentContent.style.maxHeight = currentContent.scrollHeight + "px";
-        currentArrow.style.transform = 'rotate(180deg)';
+        grid.querySelectorAll(".choose-package").forEach(btn=>btn.addEventListener("click",()=>openBookingModal(btn.dataset.package)));
       }
-    }
 
-    function renderRows(id,rows,columns){
-      document.getElementById(id).innerHTML=rows.map(row=>`<tr>${row.map((cell,i)=>`<td class="${i>0?'price':''}">${cell}</td>`).join("")}</tr>`).join("");
-    }
-
-    // =======================================================
-    // JALANKAN FUNGSI ASAL SEBAIK SAHAJA HALAMAN SIAP DIMUATKAN
-    // =======================================================
-    document.addEventListener("DOMContentLoaded", function() {
-      // 1. Memaparkan semua senarai pakej rawatan secara automatik
-      renderPackages("all");
-      
-      // 2. Jalankan fungsi asal untuk bina jadual rawatan
-      renderRows("hairRows", treatments.hair, 2);
-      renderRows("faceRows", treatments.face, 3);
-      renderRows("bodyRows", treatments.body, 3);
-      renderRows("bathRows", treatments.bath, 3);
-
-      // 3. Set paparan awal untuk Galeri Gambar cawangan pertama yang aktif
-      const awalBtnGaleri = document.querySelector('.gallery-filters .filter-btn.active') || document.querySelector('.gallery-filters .filter-btn');
-      if (awalBtnGaleri) {
-        const kategoriAwal = awalBtnGaleri.getAttribute('data-filter');
-        tapisGambarGaleri(kategoriAwal);
-      }
-    });
-
-    // =======================================================
-    // PENGURUSAN KLIK BUTANG PENAPIS SECARA ADIL & TERASING
-    // =======================================================
-    document.querySelectorAll(".filter-btn").forEach(btn => {
-      btn.addEventListener("click", function() {
-        // Cari kontainer terdekat (parent) bagi kelompok butang yang diklik sahaja
-        const kumpulanButang = this.parentElement;
+      // Logik interaktif buka tutup dengan animasi lancar
+      function toggleAccordion(index) {
+        const currentContent = document.getElementById(`content-${index}`);
+        const currentArrow = document.getElementById(`arrow-${index}`);
         
-        // Cuma tukar gaya aktif (warna pink) untuk butang dalam kelompok itu sahaja
-        kumpulanButang.querySelectorAll(".filter-btn").forEach(b => {
-          b.classList.remove("active");
-          b.style.background = "#fff";
-          b.style.color = "var(--ink)";
-          b.style.borderColor = "var(--line, #F1D6E0)";
+        document.querySelectorAll('.accordion-content').forEach((content, idx) => {
+          if (idx !== index) {
+            content.style.maxHeight = null;
+            const arrow = document.getElementById(`arrow-${idx}`);
+            if(arrow) arrow.style.transform = 'rotate(0deg)';
+          }
         });
 
-        // Aktifkan butang yang baru diklik
-        this.classList.add("active");
-        this.style.background = "var(--pink-700, #C70F5E)";
-        this.style.color = "#fff";
-        this.style.borderColor = "var(--pink-700, #C70F5E)";
-        
-        const nilaiPenapis = this.getAttribute('data-filter');
-
-        // SEMAK SECARA SPESIFIK: Adakah ini butang Galeri atau Pakej?
-        if (kumpulanButang.classList.contains("gallery-filters") || this.closest(".gallery-section")) {
-          // Jika ia butang galeri, hanya usik gambar galeri
-          tapisGambarGaleri(nilaiPenapis);
+        if (currentContent.style.maxHeight) {
+          currentContent.style.maxHeight = null;
+          currentArrow.style.transform = 'rotate(0deg)';
         } else {
-          // Jika ia butang pakej, hanya usik data pakej
-          renderPackages(nilaiPenapis);
+          currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+          currentArrow.style.transform = 'rotate(180deg)';
+        }
+      }
+
+      function renderRows(id,rows,columns){
+        document.getElementById(id).innerHTML=rows.map(row=>`<tr>${row.map((cell,i)=>`<td class="${i>0?'price':''}">${cell}</td>`).join("")}</tr>`).join("");
+      }
+
+      // =======================================================
+      // JALANKAN FUNGSI SEBAIK SAHAJA HALAMAN SIAP DIMUATKAN
+      // =======================================================
+      document.addEventListener("DOMContentLoaded", function() {
+        renderPackages("all");
+        
+        renderRows("hairRows", treatments.hair, 2);
+        renderRows("faceRows", treatments.face, 3);
+        renderRows("bodyRows", treatments.body, 3);
+        renderRows("bathRows", treatments.bath, 3);
+
+        const awalBtnGaleri = document.querySelector('.gallery-filters .filter-btn.active') || document.querySelector('.gallery-filters .filter-btn');
+        if (awalBtnGaleri) {
+          const kategoriAwal = awalBtnGaleri.getAttribute('data-filter');
+          tapisGambarGaleri(kategoriAwal);
+        }
+
+        // -------------------------------------------------------
+        // TAMBAHAN: LOGIK DROPDOWN DINAMIK SUB-RAWATAN / PAKEJ
+        // -------------------------------------------------------
+        const mainServiceSelect = document.getElementById("mainService");
+        const subServiceField = document.getElementById("subServiceField");
+        const subServiceSelect = document.getElementById("subService");
+
+        const subOptions = {
+          hair: [
+            "Normal Cut",
+            "Styling Cut",
+            "Iron / Blow Styling",
+            "Hair Wash Blow",
+            "Hair Yogurt Treatment",
+            "Hair Colling Treatment / Hair Fall / Dandruff",
+            "Hair Keratin Treatment",
+            "Inai / Perm / Colour / Rebonding / Highlight",
+            "Eyelash Perming with Face Refreshing",
+            "Eye Brow Threading"
+          ],
+          face: [
+            "Facial Refreshing",
+            "Facial Vitamin C",
+            "Facial Gold + Collagen",
+            "Facial Detox (Jerawat)",
+            "Sinus (Asap Resdung)",
+            "Facial Rawatan Resdung",
+            "Facial Seri Purnama",
+            "HUMILARA Signature Facial (LED Treatment)"
+          ],
+          body: [
+            "Sauna Herba",
+            "Sauna Infrared",
+            "Tangas",
+            "Foot Massage",
+            "Body Scrub (Free Sauna)",
+            "Body Mask",
+            "Body Bleaching",
+            "Hand / Feet Bleaching",
+            "Rendaman Kaki Herba",
+            "Hand / Feet Waxing",
+            "Manicure",
+            "Pedicure",
+            "Full Body Massage",
+            "Full Body Massage + Peranakan"
+          ],
+          bath: [
+            "Mandian Susu",
+            "Mandian Rempah",
+            "Mandian Seri Purnama",
+            "Mandian Ais"
+          ],
+          utama: [
+            "Pakej Bonda",
+            "Pakej Nilam",
+            "Pakej Mekar",
+            "Pakej Baiduri",
+            "Pakej Puteri",
+            "Pakej Suri",
+            "Pakej Segar"
+          ],
+          istimewa: [
+            "Pakej Ratu",
+            "Pakej Pengantin",
+            "Pakej Mempelai",
+            "Pakej 3 Mewangi",
+            "Pakej 3 Purnama"
+          ],
+          mini: [
+            "Pakej A",
+            "Pakej B",
+            "Pakej C",
+            "Pakej D",
+            "Pakej Santai",
+            "Foot Spa",
+            "Kuku Spa"
+          ]
+        };
+
+        if (mainServiceSelect && subServiceField && subServiceSelect) {
+          mainServiceSelect.addEventListener("change", function() {
+            const selectedValue = this.value;
+            subServiceSelect.innerHTML = '<option value="">Sila Pilih Jenis Rawatan</option>';
+
+            if (subOptions[selectedValue]) {
+              subServiceField.style.display = "block";
+              subServiceSelect.setAttribute("required", "required");
+
+              subOptions[selectedValue].forEach(function(item) {
+                const opt = document.createElement("option");
+                opt.value = item;
+                opt.textContent = item;
+                subServiceSelect.appendChild(opt);
+              });
+            } else {
+              subServiceField.style.display = "none";
+              subServiceSelect.removeAttribute("required");
+            }
+          });
         }
       });
-    });
 
-    // FUNGSI KHAS UNTUK MENAPIS GAMBAR GALERI
-    function tapisGambarGaleri(kategoriDipilih) {
-      document.querySelectorAll(".gallery-item").forEach(item => {
-        const kategoriItem = item.getAttribute('data-category');
-        
-        if (kategoriDipilih === "all" || kategoriItem === kategoriDipilih) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
+      // PENGURUSAN KLIK BUTANG PENAPIS
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+          const kumpulanButang = this.parentElement;
+          
+          kumpulanButang.querySelectorAll(".filter-btn").forEach(b => {
+            b.classList.remove("active");
+            b.style.background = "#fff";
+            b.style.color = "var(--ink)";
+            b.style.borderColor = "var(--line, #F1D6E0)";
+          });
+
+          this.classList.add("active");
+          this.style.background = "var(--pink-700, #C70F5E)";
+          this.style.color = "#fff";
+          this.style.borderColor = "var(--pink-700, #C70F5E)";
+          
+          const nilaiPenapis = this.getAttribute('data-filter');
+
+          if (kumpulanButang.classList.contains("gallery-filters") || this.closest(".gallery-section")) {
+            tapisGambarGaleri(nilaiPenapis);
+          } else {
+            renderPackages(nilaiPenapis);
+          }
+        });
       });
-    }
 
-    // Menu mudah alih
-    const menuToggle=document.getElementById("menuToggle");
-    const navLinks=document.getElementById("navLinks");
-    menuToggle.addEventListener("click",()=>{
-      const isOpen=navLinks.classList.toggle("show");
-      menuToggle.setAttribute("aria-expanded",String(isOpen));
-      menuToggle.textContent=isOpen?"×":"☰";
-    });
-    navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
-      navLinks.classList.remove("show");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰";
-    }));
+      // FUNGSI KHAS UNTUK MENAPIS GAMBAR GALERI
+      function tapisGambarGaleri(kategoriDipilih) {
+        document.querySelectorAll(".gallery-item").forEach(item => {
+          const kategoriItem = item.getAttribute('data-category');
+          
+          if (kategoriDipilih === "all" || kategoriItem === kategoriDipilih) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
 
-    // Tarikh minimum ialah hari ini.
-    const today=new Date();const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().split("T")[0];
-    document.querySelectorAll('input[type="date"]').forEach(input=>input.min=localToday);
-    document.getElementById("year").textContent=new Date().getFullYear();
+      // Menu mudah alih
+      const menuToggle=document.getElementById("menuToggle");
+      const navLinks=document.getElementById("navLinks");
+      menuToggle.addEventListener("click",()=>{
+        const isOpen=navLinks.classList.toggle("show");
+        menuToggle.setAttribute("aria-expanded",String(isOpen));
+        menuToggle.textContent=isOpen?"×":"☰";
+      });
+      navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+        navLinks.classList.remove("show");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰";
+      }));
 
-    // Pautan sosial dibaca daripada konfigurasi.
-    document.querySelectorAll(".social-row a").forEach(a=>{
-      const key=a.textContent.toLowerCase();a.href=CONFIG.social[key]||"#";
-      if(a.href==="#"||a.href.endsWith("#"))a.addEventListener("click",e=>{e.preventDefault();alert("Sila masukkan pautan "+a.textContent+" rasmi dalam bahagian CONFIG di dalam kod.");});
-    });
+      // Tarikh minimum ialah hari ini.
+      const today=new Date();const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().split("T")[0];
+      document.querySelectorAll('input[type="date"]').forEach(input=>input.min=localToday);
+      document.getElementById("year").textContent=new Date().getFullYear();
 
-    // Popup borang pakej.
-    const modal=document.getElementById("bookingModal");
-    const modalPackage=document.getElementById("modalPackage");
-    function openBookingModal(packageName){
-      modalPackage.value=packageName;modal.classList.add("open");document.body.classList.add("modal-open");
-      setTimeout(()=>document.getElementById("modalName").focus(),100);
-    }
-    function closeBookingModal(){modal.classList.remove("open");document.body.classList.remove("modal-open");}
-    document.getElementById("modalClose").addEventListener("click",closeBookingModal);
-    modal.addEventListener("click",e=>{if(e.target===modal)closeBookingModal();});
-    document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeBookingModal();});
-    document.querySelectorAll(".choose-package").forEach(btn=>btn.addEventListener("click",()=>openBookingModal(btn.dataset.package)));
+      // Pautan sosial dibaca daripada konfigurasi.
+      document.querySelectorAll(".social-row a").forEach(a=>{
+        const key=a.textContent.toLowerCase();a.href=CONFIG.social[key]||"#";
+        if(a.href==="#"||a.href.endsWith("#"))a.addEventListener("click",e=>{e.preventDefault();alert("Sila masukkan pautan "+a.textContent+" rasmi dalam bahagian CONFIG di dalam kod.");});
+      });
 
-    function sendToWhatsApp(form,source){
-      if(!form.reportValidity())return;
-      const data=new FormData(form);
-      const value=name=>(data.get(name)||"—").toString().trim();
-      const lines=[
+      // Popup borang pakej.
+      const modal=document.getElementById("bookingModal");
+      const modalPackage=document.getElementById("modalPackage");
+      function openBookingModal(packageName){
+        modalPackage.value=packageName;modal.classList.add("open");document.body.classList.add("modal-open");
+        setTimeout(()=>document.getElementById("modalName").focus(),100);
+      }
+      function closeBookingModal(){modal.classList.remove("open");document.body.classList.remove("modal-open");}
+      document.getElementById("modalClose").addEventListener("click",closeBookingModal);
+      modal.addEventListener("click",e=>{if(e.target===modal)closeBookingModal();});
+      document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeBookingModal();});
+      document.querySelectorAll(".choose-package").forEach(btn=>btn.addEventListener("click",()=>openBookingModal(btn.dataset.package)));
+
+      function sendToWhatsApp(form, source) {
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const value = name => (data.get(name) || "—").toString().trim();
+      
+      // Ambil teks paparan sebenar untuk Rawatan / Pakej (bukan 'hair' atau 'face')
+      const serviceSelect = form.querySelector("#mainService");
+      const serviceText = (source === "main" && serviceSelect && serviceSelect.selectedIndex >= 0) 
+                          ? serviceSelect.options[serviceSelect.selectedIndex].text 
+                          : value("service");
+
+      const subServiceVal = value("sub_service");
+
+      const lines = [
         "Assalamualaikum HUMAIRA MUSLIMAH SALON & SPA, saya ingin membuat permintaan tempahan.",
         "",
-        "Nama: "+value("name"),
-        "No. Telefon: "+value("phone"),
-        "Cawangan: "+value("branch"),
-        "Tarikh: "+value("date"),
-        "Masa: "+value("time"),
-        source==="modal"?"Pakej dipilih: "+value("package"):"Rawatan / Pakej: "+value("service"),
-        source==="main"?"Rawatan khusus: "+value("detail"):"",
-        "Catatan: "+value("notes"),
+        "Nama: " + value("name"),
+        "No. Telefon: " + value("phone"),
+        "Cawangan: " + value("branch"),
+        "Tarikh: " + value("date"),
+        "Masa: " + value("time"),
+        source === "modal" ? "Pakej dipilih: " + value("package") : "Rawatan / Pakej: " + serviceText,
+        (source === "main" && subServiceVal && subServiceVal !== "—") ? "Jenis Rawatan: " + subServiceVal : "",
+        "Catatan: " + value("notes"),
         "",
         "Mohon pihak salon semak kekosongan slot dan sahkan tempahan saya. Terima kasih."
       ].filter(Boolean);
-      const url="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(lines.join("\n"));
-      window.open(url,"_blank","noopener");
+
+      const url = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(lines.join("\n"));
+      window.open(url, "_blank", "noopener");
     }
-    document.getElementById("mainBookingForm").addEventListener("submit",e=>{e.preventDefault();sendToWhatsApp(e.currentTarget,"main");});
-    document.getElementById("modalBookingForm").addEventListener("submit",e=>{e.preventDefault();sendToWhatsApp(e.currentTarget,"modal");closeBookingModal();});
+      document.getElementById("mainBookingForm").addEventListener("submit",e=>{e.preventDefault();sendToWhatsApp(e.currentTarget,"main");});
+      document.getElementById("modalBookingForm").addEventListener("submit",e=>{e.preventDefault();sendToWhatsApp(e.currentTarget,"modal");closeBookingModal();});
   </script>
 
   <script>
